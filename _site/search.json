@@ -26,5 +26,40 @@
     "title": "quarto",
     "section": "",
     "text": "Code and tables\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPost With Code\n\n\n\nnews\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nMay 22, 2025\n\n\nHarlow Malloc\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nMay 19, 2025\n\n\nTristan O’Malley\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/test-bookup/index.html",
+    "href": "posts/test-bookup/index.html",
+    "title": "Code and tables",
+    "section": "",
+    "text": "Here is a sample code chunk, just to show that syntax highlighting works as expected as well as code annotations.\n\nsay_hello &lt;- function(name) {\n1    paste(\"Hello,\", name, \"!\")\n}\n\n2say_hello(\"world\")\n\n\n1\n\nQuite an original example.\n\n2\n\nThis is were all the action is happening.\n\n\n\n\n[1] \"Hello, world !\"\n\n\n\n\n\nHere is the structure of the penguins dataset.\n\nlibrary(palmerpenguins)\n\n\n载入程序包：'palmerpenguins'\n\n\nThe following objects are masked from 'package:datasets':\n\n    penguins, penguins_raw\n\nstr(penguins)\n\ntibble [344 × 8] (S3: tbl_df/tbl/data.frame)\n $ species          : Factor w/ 3 levels \"Adelie\",\"Chinstrap\",..: 1 1 1 1 1 1 1 1 1 1 ...\n $ island           : Factor w/ 3 levels \"Biscoe\",\"Dream\",..: 3 3 3 3 3 3 3 3 3 3 ...\n $ bill_length_mm   : num [1:344] 39.1 39.5 40.3 NA 36.7 39.3 38.9 39.2 34.1 42 ...\n $ bill_depth_mm    : num [1:344] 18.7 17.4 18 NA 19.3 20.6 17.8 19.6 18.1 20.2 ...\n $ flipper_length_mm: int [1:344] 181 186 195 NA 193 190 181 195 193 190 ...\n $ body_mass_g      : int [1:344] 3750 3800 3250 NA 3450 3650 3625 4675 3475 4250 ...\n $ sex              : Factor w/ 2 levels \"female\",\"male\": 2 1 1 NA 1 2 1 2 NA NA ...\n $ year             : int [1:344] 2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 ...\n\n\n\n\n\nSample table output.\n\ntab &lt;- table(penguins$island, penguins$species)\nkable(tab)\n\n\n\n\n\nAdelie\nChinstrap\nGentoo\n\n\n\n\nBiscoe\n44\n0\n124\n\n\nDream\n56\n68\n0\n\n\nTorgersen\n52\n0\n0\n\n\n\n\n\nSample DT:datatable output.\n\nlibrary(DT)\nDT::datatable(penguins)"
+  },
+  {
+    "objectID": "posts/test-bookup/index.html#syntax-highlighting",
+    "href": "posts/test-bookup/index.html#syntax-highlighting",
+    "title": "Code and tables",
+    "section": "",
+    "text": "Here is a sample code chunk, just to show that syntax highlighting works as expected as well as code annotations.\n\nsay_hello &lt;- function(name) {\n1    paste(\"Hello,\", name, \"!\")\n}\n\n2say_hello(\"world\")\n\n\n1\n\nQuite an original example.\n\n2\n\nThis is were all the action is happening.\n\n\n\n\n[1] \"Hello, world !\""
+  },
+  {
+    "objectID": "posts/test-bookup/index.html#verbatim",
+    "href": "posts/test-bookup/index.html#verbatim",
+    "title": "Code and tables",
+    "section": "",
+    "text": "Here is the structure of the penguins dataset.\n\nlibrary(palmerpenguins)\n\n\n载入程序包：'palmerpenguins'\n\n\nThe following objects are masked from 'package:datasets':\n\n    penguins, penguins_raw\n\nstr(penguins)\n\ntibble [344 × 8] (S3: tbl_df/tbl/data.frame)\n $ species          : Factor w/ 3 levels \"Adelie\",\"Chinstrap\",..: 1 1 1 1 1 1 1 1 1 1 ...\n $ island           : Factor w/ 3 levels \"Biscoe\",\"Dream\",..: 3 3 3 3 3 3 3 3 3 3 ...\n $ bill_length_mm   : num [1:344] 39.1 39.5 40.3 NA 36.7 39.3 38.9 39.2 34.1 42 ...\n $ bill_depth_mm    : num [1:344] 18.7 17.4 18 NA 19.3 20.6 17.8 19.6 18.1 20.2 ...\n $ flipper_length_mm: int [1:344] 181 186 195 NA 193 190 181 195 193 190 ...\n $ body_mass_g      : int [1:344] 3750 3800 3250 NA 3450 3650 3625 4675 3475 4250 ...\n $ sex              : Factor w/ 2 levels \"female\",\"male\": 2 1 1 NA 1 2 1 2 NA NA ...\n $ year             : int [1:344] 2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 ..."
+  },
+  {
+    "objectID": "posts/test-bookup/index.html#tables",
+    "href": "posts/test-bookup/index.html#tables",
+    "title": "Code and tables",
+    "section": "",
+    "text": "Sample table output.\n\ntab &lt;- table(penguins$island, penguins$species)\nkable(tab)\n\n\n\n\n\nAdelie\nChinstrap\nGentoo\n\n\n\n\nBiscoe\n44\n0\n124\n\n\nDream\n56\n68\n0\n\n\nTorgersen\n52\n0\n0\n\n\n\n\n\nSample DT:datatable output.\n\nlibrary(DT)\nDT::datatable(penguins)"
+  },
+  {
+    "objectID": "posts/test-bookup/index.html#footnotes",
+    "href": "posts/test-bookup/index.html#footnotes",
+    "title": "Code and tables",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nAnd even footnotes↩︎"
   }
 ]
