@@ -1,0 +1,734 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../about/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
+    
+    
+      
+        <title>A First Take - ハラショー</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="https://static.zeoseven.com/zsft/292/main/result.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="lime">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#a-first-take" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="ハラショー" class="md-header__button md-logo" aria-label="ハラショー" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ハラショー
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              A First Take
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="lime"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="amber" data-md-color-accent="deep-purple"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  A First Take
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  关于
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../friends/friends.md" class="md-tabs__link">
+        
+  
+  
+    
+  
+  友链
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="ハラショー" class="md-nav__button md-logo" aria-label="ハラショー" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    ハラショー
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    首页
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+      
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    A First Take
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    A First Take
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      你说得对，但是
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    关于
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../friends/friends.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    友链
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      你说得对，但是
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+  <div class="md-content" data-md-component="content">
+    <div class="md-content__inner">
+      <header class="md-typeset">
+        <h1 id="a-first-take">A First Take</h1>
+<p>this <span class="typst-math"><svg class="typst-doc" viewBox="0 0 43.07441111111111 7.513000000000001" width="43.07441111111111pt" height="7.513000000000001pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:h5="http://www.w3.org/1999/xhtml">
+    <g>
+        <g transform="translate(0 7.513000000000001)">
+            <g class="typst-text" transform="scale(1, -1)">
+                <use xlink:href="#gC51939D80070724F769B9CCB5FB4784E" x="0" fill="var(--md-typeset-color)" fill-rule="nonzero"/>
+            </g>
+        </g>
+        <g transform="translate(11.767555555555557 7.513000000000001)">
+            <g class="typst-text" transform="scale(1, -1)">
+                <use xlink:href="#g2B75D56EE8EE2B664D2F2C63BFC0AE26" x="0" fill="var(--md-typeset-color)" fill-rule="nonzero"/>
+            </g>
+        </g>
+        <g transform="translate(23.381111111111114 7.513000000000001)">
+            <g class="typst-text" transform="scale(1, -1)">
+                <use xlink:href="#g7852DB1D879B9D6B4FA8C83D3DCD47E8" x="0" fill="var(--md-typeset-color)" fill-rule="nonzero"/>
+            </g>
+        </g>
+        <g transform="translate(33.03911111111111 7.513000000000001)">
+            <g class="typst-text" transform="scale(1, -1)">
+                <use xlink:href="#g7788B3F178003832BC1C70F10E6CA176" x="0" fill="var(--md-typeset-color)" fill-rule="nonzero"/>
+            </g>
+        </g>
+        <g transform="translate(38.07711111111111 3.5200000000000005)">
+            <g class="typst-text" transform="scale(1, -1)">
+                <use xlink:href="#g39F5C37F9251C6BBAC985BF1ABD60801" x="0" fill="var(--md-typeset-color)" fill-rule="nonzero"/>
+            </g>
+        </g>
+    </g>
+    <defs id="glyph">
+        <symbol id="gC51939D80070724F769B9CCB5FB4784E" overflow="visible">
+            <path d="M 2.189 7.216 C 2.189 7.106 2.31 7.051 2.541 7.051 C 2.981 7.051 3.201 7.007 3.201 6.908 C 3.201 6.875 3.179 6.798 3.146 6.6549997 L 1.716 0.902 C 1.661 0.65999997 1.551 0.517 1.386 0.462 C 1.309 0.44 1.111 0.429 0.77 0.429 C 0.528 0.429 0.41799998 0.407 0.41799998 0.176 C 0.41799998 0.055 0.539 0 0.77 0 L 6.413 0 C 6.677 0 6.699 0.022 6.787 0.20899999 L 7.2269998 1.199 C 7.524 1.881 7.733 2.387 7.854 2.728 C 7.832 2.827 7.799 2.893 7.678 2.893 C 7.601 2.893 7.535 2.838 7.491 2.739 C 7.216 2.09 6.952 1.595 6.6879997 1.243 C 6.248 0.649 5.599 0.429 4.565 0.429 L 2.97 0.429 C 2.86 0.429 2.783 0.429 2.739 0.44 C 2.673 0.44 2.6399999 0.462 2.6399999 0.495 C 2.6399999 0.517 2.662 0.594 2.695 0.737 L 3.421 3.674 L 4.466 3.674 C 4.983 3.674 5.258 3.608 5.313 3.465 C 5.335 3.41 5.346 3.333 5.346 3.223 C 5.346 3.08 5.324 2.904 5.269 2.695 C 5.2469997 2.6399999 5.236 2.596 5.236 2.563 C 5.236 2.453 5.302 2.398 5.423 2.398 C 5.522 2.398 5.588 2.486 5.632 2.651 L 6.248 5.203 C 6.248 5.313 6.193 5.368 6.072 5.368 C 5.984 5.368 5.9179997 5.291 5.8849998 5.137 C 5.775 4.708 5.632 4.433 5.445 4.301 C 5.258 4.169 4.95 4.103 4.499 4.103 L 3.531 4.103 L 4.169 6.666 C 4.257 7.04 4.257 7.051 4.719 7.051 L 6.248 7.051 C 6.809 7.051 7.194 6.996 7.403 6.886 C 7.711 6.721 7.865 6.391 7.865 5.896 C 7.865 5.709 7.854 5.511 7.821 5.324 C 7.821 5.302 7.821 5.269 7.81 5.225 L 7.81 5.126 C 7.81 5.005 7.865 4.95 7.975 4.95 C 8.085 4.95 8.151 5.049 8.173 5.258 L 8.393 7.139 C 8.426 7.447 8.349 7.48 8.052 7.48 L 2.563 7.48 C 2.31 7.48 2.189 7.469 2.189 7.216 Z "/>
+        </symbol>
+        <symbol id="g2B75D56EE8EE2B664D2F2C63BFC0AE26" overflow="visible">
+            <path d="M 7.678 4.037 L 0.88 4.037 C 0.704 4.037 0.616 3.949 0.616 3.784 C 0.616 3.619 0.704 3.531 0.88 3.531 L 7.678 3.531 C 7.854 3.531 7.942 3.619 7.942 3.784 C 7.942 3.916 7.821 4.037 7.678 4.037 Z M 7.678 1.969 L 0.88 1.969 C 0.704 1.969 0.616 1.881 0.616 1.716 C 0.616 1.551 0.704 1.4629999 0.88 1.4629999 L 7.678 1.4629999 C 7.854 1.4629999 7.942 1.551 7.942 1.716 C 7.942 1.859 7.821 1.969 7.678 1.969 Z "/>
+        </symbol>
+        <symbol id="g7852DB1D879B9D6B4FA8C83D3DCD47E8" overflow="visible">
+            <path d="M 7.2269998 4.862 C 6.5559998 4.862 5.973 4.532 5.478 3.883 C 5.379 4.532 4.961 4.862 4.213 4.862 C 3.564 4.862 3.003 4.576 2.541 3.993 C 2.453 4.4769998 2.068 4.862 1.507 4.862 C 1.056 4.862 0.726 4.499 0.495 3.784 C 0.374 3.432 0.319 3.223 0.319 3.157 C 0.319 3.058 0.374 3.003 0.495 3.003 C 0.55 3.003 0.583 3.014 0.616 3.036 C 0.671 3.135 0.704 3.212 0.726 3.289 C 0.924 4.125 1.177 4.5429997 1.474 4.5429997 C 1.6719999 4.5429997 1.771 4.389 1.771 4.081 C 1.771 3.938 1.716 3.641 1.595 3.19 L 0.968 0.693 C 0.924 0.561 0.869 0.275 0.869 0.20899999 C 0.869 -0.011 0.99 -0.121 1.221 -0.121 C 1.441 -0.121 1.595 -0.011 1.6719999 0.20899999 C 1.683 0.264 1.76 0.539 1.881 1.012 L 2.112 1.9909999 L 2.442 3.245 C 2.563 3.498 2.75 3.751 2.992 4.015 C 3.3109999 4.367 3.707 4.5429997 4.18 4.5429997 C 4.5429997 4.5429997 4.719 4.301 4.719 3.828 C 4.719 3.685 4.664 3.388 4.554 2.937 L 4.257 1.683 C 4.18 1.364 4.004 0.704 3.916 0.352 C 3.905 0.275 3.894 0.231 3.894 0.20899999 C 3.894 -0.011 4.015 -0.121 4.257 -0.121 C 4.378 -0.121 4.466 -0.088 4.5429997 -0.011 C 4.708 0.154 4.719 0.231 4.785 0.528 L 5.434 3.135 C 5.467 3.2779999 5.621 3.531 5.8849998 3.883 C 6.215 4.323 6.6549997 4.5429997 7.194 4.5429997 C 7.557 4.5429997 7.733 4.301 7.733 3.828 C 7.733 3.399 7.513 2.596 7.062 1.419 C 6.963 1.166 6.919 0.957 6.919 0.814 C 6.919 0.275 7.3259997 -0.121 7.854 -0.121 C 8.349 -0.121 8.723 0.154 8.998 0.704 C 9.218 1.144 9.328 1.441 9.328 1.584 C 9.328 1.683 9.273 1.738 9.152 1.738 C 9.075 1.727 8.998 1.628 8.943 1.507 C 8.701 0.638 8.349 0.198 7.876 0.198 C 7.733 0.198 7.656 0.308 7.656 0.517 C 7.656 0.682 7.722 0.924 7.854 1.265 C 8.305 2.442 8.525 3.245 8.525 3.6629999 C 8.525 4.444 8.008 4.862 7.2269998 4.862 Z "/>
+        </symbol>
+        <symbol id="g7788B3F178003832BC1C70F10E6CA176" overflow="visible">
+            <path d="M 3.608 3.575 C 3.608 3.3 3.751 3.157 4.048 3.157 C 4.444 3.157 4.697 3.498 4.697 3.894 C 4.697 4.5099998 4.048 4.862 3.388 4.862 C 2.629 4.862 1.936 4.532 1.342 3.883 C 0.748 3.234 0.451 2.519 0.451 1.749 C 0.451 0.671 1.166 -0.121 2.244 -0.121 C 2.827 -0.121 3.3439999 0.022 3.795 0.297 C 4.169 0.528 4.444 0.759 4.62 0.99 C 4.697 1.089 4.73 1.166 4.73 1.199 C 4.73 1.3199999 4.675 1.386 4.554 1.386 C 4.499 1.386 4.444 1.342 4.378 1.254 C 4.015 0.77 3.564 0.462 3.047 0.32999998 C 2.706 0.242 2.453 0.198 2.266 0.198 C 1.6389999 0.198 1.331 0.583 1.331 1.342 C 1.331 2.024 1.65 3.014 1.914 3.487 C 2.178 3.971 2.739 4.5429997 3.388 4.5429997 C 3.806 4.5429997 4.092 4.422 4.246 4.191 C 3.905 4.158 3.608 3.938 3.608 3.575 Z "/>
+        </symbol>
+        <symbol id="g39F5C37F9251C6BBAC985BF1ABD60801" overflow="visible">
+            <path d="M 0.9163 3.2648 C 1.1626999 3.2648 1.3475 3.4496 1.3475 3.696 C 1.3475 3.9732 1.2012 4.1195 0.9163 4.1272 C 1.0857 4.4891 1.4707 4.7817 1.9712 4.7817 C 2.6488 4.7817 3.0954 4.2735 3.0954 3.5959 C 3.0954 3.2263 2.9645 2.8720999 2.695 2.5256 C 2.5641 2.3485 2.464 2.2253 2.3947 2.156 L 0.5698 0.3465 C 0.4697 0.2541 0.4851 0.231 0.4851 0 L 3.6575 0 L 3.8962 1.4476 L 3.5728 1.4476 C 3.5189 1.0395 3.4573 0.80079997 3.388 0.7469 C 3.3495 0.7238 3.1108 0.7084 2.6565 0.7084 L 1.3475 0.7084 C 1.8634 1.1626999 2.3408 1.5708 2.7951 1.9327 C 3.1416 2.2022 3.388 2.4409 3.542 2.6488 C 3.773 2.9491 3.8885 3.2648 3.8885 3.5959 C 3.8885 4.0733 3.7037 4.4506 3.3264 4.7278 C 2.9953 4.9818997 2.5795 5.1128 2.0867 5.1128 C 1.6632 5.1128 1.3013 4.9896 0.9856 4.7432 C 0.6545 4.4737 0.4851 4.1349 0.4851 3.7191 C 0.4851 3.4573 0.6776 3.2648 0.9163 3.2648 Z "/>
+        </symbol>
+    </defs>
+</svg><span class="sr-only">$E=m c^2$</span></span> is a typst test</p>
+<div class="typst-math"><svg class="typst-doc" viewBox="0 0 43.074411111111104 9.226799999999999" width="43.074411111111104pt" height="9.226799999999999pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:h5="http://www.w3.org/1999/xhtml">
+    <g>
+        <g transform="translate(0 9.1058)">
+            <g class="typst-text" transform="scale(1, -1)">
+                <use xlink:href="#gC51939D80070724F769B9CCB5FB4784E" x="0" fill="var(--md-typeset-color)" fill-rule="nonzero"/>
+            </g>
+        </g>
+        <g transform="translate(11.767555555555557 9.1058)">
+            <g class="typst-text" transform="scale(1, -1)">
+                <use xlink:href="#g2B75D56EE8EE2B664D2F2C63BFC0AE26" x="0" fill="var(--md-typeset-color)" fill-rule="nonzero"/>
+            </g>
+        </g>
+        <g transform="translate(23.381111111111114 9.1058)">
+            <g class="typst-text" transform="scale(1, -1)">
+                <use xlink:href="#g7852DB1D879B9D6B4FA8C83D3DCD47E8" x="0" fill="var(--md-typeset-color)" fill-rule="nonzero"/>
+            </g>
+        </g>
+        <g transform="translate(33.03911111111111 9.1058)">
+            <g class="typst-text" transform="scale(1, -1)">
+                <use xlink:href="#g7788B3F178003832BC1C70F10E6CA176" x="0" fill="var(--md-typeset-color)" fill-rule="nonzero"/>
+            </g>
+        </g>
+        <g transform="translate(38.07711111111111 5.1128)">
+            <g class="typst-text" transform="scale(1, -1)">
+                <use xlink:href="#g39F5C37F9251C6BBAC985BF1ABD60801" x="0" fill="var(--md-typeset-color)" fill-rule="nonzero"/>
+            </g>
+        </g>
+    </g>
+    <defs id="glyph">
+        <symbol id="gC51939D80070724F769B9CCB5FB4784E" overflow="visible">
+            <path d="M 2.189 7.216 C 2.189 7.106 2.31 7.051 2.541 7.051 C 2.981 7.051 3.201 7.007 3.201 6.908 C 3.201 6.875 3.179 6.798 3.146 6.6549997 L 1.716 0.902 C 1.661 0.65999997 1.551 0.517 1.386 0.462 C 1.309 0.44 1.111 0.429 0.77 0.429 C 0.528 0.429 0.41799998 0.407 0.41799998 0.176 C 0.41799998 0.055 0.539 0 0.77 0 L 6.413 0 C 6.677 0 6.699 0.022 6.787 0.20899999 L 7.2269998 1.199 C 7.524 1.881 7.733 2.387 7.854 2.728 C 7.832 2.827 7.799 2.893 7.678 2.893 C 7.601 2.893 7.535 2.838 7.491 2.739 C 7.216 2.09 6.952 1.595 6.6879997 1.243 C 6.248 0.649 5.599 0.429 4.565 0.429 L 2.97 0.429 C 2.86 0.429 2.783 0.429 2.739 0.44 C 2.673 0.44 2.6399999 0.462 2.6399999 0.495 C 2.6399999 0.517 2.662 0.594 2.695 0.737 L 3.421 3.674 L 4.466 3.674 C 4.983 3.674 5.258 3.608 5.313 3.465 C 5.335 3.41 5.346 3.333 5.346 3.223 C 5.346 3.08 5.324 2.904 5.269 2.695 C 5.2469997 2.6399999 5.236 2.596 5.236 2.563 C 5.236 2.453 5.302 2.398 5.423 2.398 C 5.522 2.398 5.588 2.486 5.632 2.651 L 6.248 5.203 C 6.248 5.313 6.193 5.368 6.072 5.368 C 5.984 5.368 5.9179997 5.291 5.8849998 5.137 C 5.775 4.708 5.632 4.433 5.445 4.301 C 5.258 4.169 4.95 4.103 4.499 4.103 L 3.531 4.103 L 4.169 6.666 C 4.257 7.04 4.257 7.051 4.719 7.051 L 6.248 7.051 C 6.809 7.051 7.194 6.996 7.403 6.886 C 7.711 6.721 7.865 6.391 7.865 5.896 C 7.865 5.709 7.854 5.511 7.821 5.324 C 7.821 5.302 7.821 5.269 7.81 5.225 L 7.81 5.126 C 7.81 5.005 7.865 4.95 7.975 4.95 C 8.085 4.95 8.151 5.049 8.173 5.258 L 8.393 7.139 C 8.426 7.447 8.349 7.48 8.052 7.48 L 2.563 7.48 C 2.31 7.48 2.189 7.469 2.189 7.216 Z "/>
+        </symbol>
+        <symbol id="g2B75D56EE8EE2B664D2F2C63BFC0AE26" overflow="visible">
+            <path d="M 7.678 4.037 L 0.88 4.037 C 0.704 4.037 0.616 3.949 0.616 3.784 C 0.616 3.619 0.704 3.531 0.88 3.531 L 7.678 3.531 C 7.854 3.531 7.942 3.619 7.942 3.784 C 7.942 3.916 7.821 4.037 7.678 4.037 Z M 7.678 1.969 L 0.88 1.969 C 0.704 1.969 0.616 1.881 0.616 1.716 C 0.616 1.551 0.704 1.4629999 0.88 1.4629999 L 7.678 1.4629999 C 7.854 1.4629999 7.942 1.551 7.942 1.716 C 7.942 1.859 7.821 1.969 7.678 1.969 Z "/>
+        </symbol>
+        <symbol id="g7852DB1D879B9D6B4FA8C83D3DCD47E8" overflow="visible">
+            <path d="M 7.2269998 4.862 C 6.5559998 4.862 5.973 4.532 5.478 3.883 C 5.379 4.532 4.961 4.862 4.213 4.862 C 3.564 4.862 3.003 4.576 2.541 3.993 C 2.453 4.4769998 2.068 4.862 1.507 4.862 C 1.056 4.862 0.726 4.499 0.495 3.784 C 0.374 3.432 0.319 3.223 0.319 3.157 C 0.319 3.058 0.374 3.003 0.495 3.003 C 0.55 3.003 0.583 3.014 0.616 3.036 C 0.671 3.135 0.704 3.212 0.726 3.289 C 0.924 4.125 1.177 4.5429997 1.474 4.5429997 C 1.6719999 4.5429997 1.771 4.389 1.771 4.081 C 1.771 3.938 1.716 3.641 1.595 3.19 L 0.968 0.693 C 0.924 0.561 0.869 0.275 0.869 0.20899999 C 0.869 -0.011 0.99 -0.121 1.221 -0.121 C 1.441 -0.121 1.595 -0.011 1.6719999 0.20899999 C 1.683 0.264 1.76 0.539 1.881 1.012 L 2.112 1.9909999 L 2.442 3.245 C 2.563 3.498 2.75 3.751 2.992 4.015 C 3.3109999 4.367 3.707 4.5429997 4.18 4.5429997 C 4.5429997 4.5429997 4.719 4.301 4.719 3.828 C 4.719 3.685 4.664 3.388 4.554 2.937 L 4.257 1.683 C 4.18 1.364 4.004 0.704 3.916 0.352 C 3.905 0.275 3.894 0.231 3.894 0.20899999 C 3.894 -0.011 4.015 -0.121 4.257 -0.121 C 4.378 -0.121 4.466 -0.088 4.5429997 -0.011 C 4.708 0.154 4.719 0.231 4.785 0.528 L 5.434 3.135 C 5.467 3.2779999 5.621 3.531 5.8849998 3.883 C 6.215 4.323 6.6549997 4.5429997 7.194 4.5429997 C 7.557 4.5429997 7.733 4.301 7.733 3.828 C 7.733 3.399 7.513 2.596 7.062 1.419 C 6.963 1.166 6.919 0.957 6.919 0.814 C 6.919 0.275 7.3259997 -0.121 7.854 -0.121 C 8.349 -0.121 8.723 0.154 8.998 0.704 C 9.218 1.144 9.328 1.441 9.328 1.584 C 9.328 1.683 9.273 1.738 9.152 1.738 C 9.075 1.727 8.998 1.628 8.943 1.507 C 8.701 0.638 8.349 0.198 7.876 0.198 C 7.733 0.198 7.656 0.308 7.656 0.517 C 7.656 0.682 7.722 0.924 7.854 1.265 C 8.305 2.442 8.525 3.245 8.525 3.6629999 C 8.525 4.444 8.008 4.862 7.2269998 4.862 Z "/>
+        </symbol>
+        <symbol id="g7788B3F178003832BC1C70F10E6CA176" overflow="visible">
+            <path d="M 3.608 3.575 C 3.608 3.3 3.751 3.157 4.048 3.157 C 4.444 3.157 4.697 3.498 4.697 3.894 C 4.697 4.5099998 4.048 4.862 3.388 4.862 C 2.629 4.862 1.936 4.532 1.342 3.883 C 0.748 3.234 0.451 2.519 0.451 1.749 C 0.451 0.671 1.166 -0.121 2.244 -0.121 C 2.827 -0.121 3.3439999 0.022 3.795 0.297 C 4.169 0.528 4.444 0.759 4.62 0.99 C 4.697 1.089 4.73 1.166 4.73 1.199 C 4.73 1.3199999 4.675 1.386 4.554 1.386 C 4.499 1.386 4.444 1.342 4.378 1.254 C 4.015 0.77 3.564 0.462 3.047 0.32999998 C 2.706 0.242 2.453 0.198 2.266 0.198 C 1.6389999 0.198 1.331 0.583 1.331 1.342 C 1.331 2.024 1.65 3.014 1.914 3.487 C 2.178 3.971 2.739 4.5429997 3.388 4.5429997 C 3.806 4.5429997 4.092 4.422 4.246 4.191 C 3.905 4.158 3.608 3.938 3.608 3.575 Z "/>
+        </symbol>
+        <symbol id="g39F5C37F9251C6BBAC985BF1ABD60801" overflow="visible">
+            <path d="M 0.9163 3.2648 C 1.1626999 3.2648 1.3475 3.4496 1.3475 3.696 C 1.3475 3.9732 1.2012 4.1195 0.9163 4.1272 C 1.0857 4.4891 1.4707 4.7817 1.9712 4.7817 C 2.6488 4.7817 3.0954 4.2735 3.0954 3.5959 C 3.0954 3.2263 2.9645 2.8720999 2.695 2.5256 C 2.5641 2.3485 2.464 2.2253 2.3947 2.156 L 0.5698 0.3465 C 0.4697 0.2541 0.4851 0.231 0.4851 0 L 3.6575 0 L 3.8962 1.4476 L 3.5728 1.4476 C 3.5189 1.0395 3.4573 0.80079997 3.388 0.7469 C 3.3495 0.7238 3.1108 0.7084 2.6565 0.7084 L 1.3475 0.7084 C 1.8634 1.1626999 2.3408 1.5708 2.7951 1.9327 C 3.1416 2.2022 3.388 2.4409 3.542 2.6488 C 3.773 2.9491 3.8885 3.2648 3.8885 3.5959 C 3.8885 4.0733 3.7037 4.4506 3.3264 4.7278 C 2.9953 4.9818997 2.5795 5.1128 2.0867 5.1128 C 1.6632 5.1128 1.3013 4.9896 0.9856 4.7432 C 0.6545 4.4737 0.4851 4.1349 0.4851 3.7191 C 0.4851 3.4573 0.6776 3.2648 0.9163 3.2648 Z "/>
+        </symbol>
+    </defs>
+</svg><span class="sr-only">$ E=m c^2 $</span></div>
+      </header>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+      <nav class="md-post__authors md-typeset">
+        
+          <span class="md-author">
+            <img src="https://github.com/uni-lamb.png" alt="uni">
+          </span>
+        
+      </nav>
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2025-07-04 00:00:00+00:00">July 4, 2025</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="category/%E6%97%A5%E8%AE%B0/" class="md-meta__link">日记</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              1 min read
+            
+          </li>
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="_1"><a class="toclink" href="2025/07/04/%E4%BD%A0%E8%AF%B4%E5%BE%97%E5%AF%B9%E4%BD%86%E6%98%AF/">你说得对，但是</a></h2>
+<p>今天是Nagisa的生日，祝她生日快乐！</p>
+    
+  </div>
+</article>
+      
+      
+        
+          
+
+
+
+<nav class="md-pagination">
+  
+</nav>
+        
+      
+    </div>
+  </div>
+
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <!-- Footer -->
+<footer class="md-footer">
+
+  <!-- Link to previous and/or next page -->
+  
+    
+      
+      <nav
+        class="md-footer__inner md-grid"
+        aria-label="Footer"
+        
+      >
+
+        <!-- Link to previous page -->
+        
+          
+          <a
+            href=".."
+            class="md-footer__link md-footer__link--prev"
+            aria-label="Previous: 首页"
+          >
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                首页
+              </div>
+            </div>
+
+          </a>
+        
+
+        <!-- Link to next page -->
+        
+          
+          <a
+            href="../about/"
+            class="md-footer__link md-footer__link--next"
+            aria-label="Next: 关于"
+          >
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                关于
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+
+  <!-- Further information -->
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+
+    <font color="#B9B9B9">
+      <div class="footer-visit-count" style="display: flex; justify-content: center; align-items: center;">
+    本站访问量：<script async src="//finicounter.eu.org/finicounter.js"></script>
+    <span id="finicount_views"></span>    &nbsp;|&nbsp;
+    <footer>
+      <a href="https://icp.gov.moe/?keyword=20230640" target="_blank">萌ICP备20230640号</a>
+    </footer>
+  </div>
+      </font>
+
+      <style>
+        .footer-visit-count {
+            height: fit-content;
+            min-height: 55px; /* 根据实际情况调整此高度 */
+        }
+        </style>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["search.suggest", "navigation.tracking", "navigation.footer", "navigation.tabs"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,50 @@
+site_name: ハラショー
+#site_url: localhost:8000
+
+
+theme: 
+  name: material
+  custom_dir: docs/overrides  # 启用自定义模板
+  palette:    
+    # Palette toggle for light mode
+    - scheme: default
+      toggle:
+        icon: material/brightness-7 
+        name: Switch to dark mode
+      primary: black
+      accent: lime
+    # Palette toggle for dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+      primary: amber
+      accent: deep purple
+  features:
+    - search.suggest
+    - navigation.tracking
+    - navigation.footer
+    - navigation.tabs
+
+
+
+plugins:
+  - blog:
+      blog_toc: true
+      archive_date_format: MMMM yyyy
+
+markdown_extensions:
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+          
+hooks:
+  - hooks/typst_math.py
+
+extra_css:
+  - stylesheets/extra.css
+  - https://static.zeoseven.com/zsft/292/main/result.css
