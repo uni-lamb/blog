@@ -18,10 +18,13 @@ jobs:
 
       # --- 新增：安装 Typst 编译器 ---
       - name: Install Typst
-        uses: arne-cl/typst-action@v1 # 使用 arne-cl/typst-action 来安装 Typst
-        with:
-          typst-version: 0.11.0 # **重要：请根据你希望使用的 Typst 版本进行调整**
-                                # 建议使用最新稳定版，可以在 Typst GitHub Releases 页面查看
+        run: |
+          # 下载并安装 Typst
+          curl -L https://github.com/typst/typst/releases/latest/download/typst-x86_64-unknown-linux-musl.tar.xz -o typst.tar.xz
+          tar -xf typst.tar.xz
+          sudo mv typst-x86_64-unknown-linux-musl/typst /usr/local/bin/
+          # 验证安装
+          typst --version
 
       - uses: actions/setup-python@v5
         with:
