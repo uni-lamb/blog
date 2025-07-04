@@ -1,18 +1,11 @@
 site_name: ハラショー
-site_url: https://uni-lamb.github.io/blog
+site_url: https://uni-lamb.github.io/blog/
 
 
 theme: 
   name: material
   custom_dir: docs/overrides  # 启用自定义模板
   palette:    
-    # Palette toggle for light mode
-    - scheme: default
-      toggle:
-        icon: material/brightness-7 
-        name: Switch to dark mode
-      primary: black
-      accent: lime
     # Palette toggle for dark mode
     - scheme: slate
       toggle:
@@ -20,6 +13,14 @@ theme:
         name: Switch to light mode
       primary: amber
       accent: deep purple
+    # Palette toggle for light mode
+    - scheme: default
+      toggle:
+        icon: material/brightness-7 
+        name: Switch to dark mode
+      primary: black
+      accent: lime
+
   features:
     - search.suggest
     - navigation.tracking
