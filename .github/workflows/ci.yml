@@ -1,0 +1,30 @@
+name: ci 
+on:
+  push:
+    branches:
+      - master 
+      - main  # 如果你的默认分支不是 main，需要改为你的分支名（如 master）
+permissions:
+  contents: write
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configure Git Credentials
+        run: |
+          git config user.name github-actions[bot]  # 可以改为你的用户名，但建议保持 bot
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com  # 可以改为你的邮箱
+      - uses: actions/setup-python@v5
+        with:
+          python-version: 3.x
+      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV 
+      - uses: actions/cache@v4
+        with:
+          key: mkdocs-material-${{ env.cache_id }}
+          path: .cache 
+          restore-keys: |
+            mkdocs-material-
+      - run: pip install mkdocs-material  # 需要添加你项目用到的其他依赖
+      - run: pip install pymdown-extensions  # 你的项目使用了 pymdownx 扩展
+      - run: mkdocs gh-deploy --force
