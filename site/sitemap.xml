@@ -1,3 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://uni-lamb.github.io/blog/</loc>
+         <lastmod>2025-10-07</lastmod>
+    </url>
+    <url>
+         <loc>https://uni-lamb.github.io/blog/about/</loc>
+         <lastmod>2025-10-07</lastmod>
+    </url>
+    <url>
+         <loc>https://uni-lamb.github.io/blog/blog/</loc>
+         <lastmod>2025-10-07</lastmod>
+    </url>
+    <url>
+         <loc>https://uni-lamb.github.io/blog/blog/2025/07/04/%E4%BD%A0%E8%AF%B4%E5%BE%97%E5%AF%B9%E4%BD%86%E6%98%AF/</loc>
+         <lastmod>2025-10-07</lastmod>
+    </url>
+    <url>
+         <loc>https://uni-lamb.github.io/blog/friends/%E5%8F%8B%E9%93%BE/</loc>
+         <lastmod>2025-10-07</lastmod>
+    </url>
+    <url>
+         <loc>https://uni-lamb.github.io/blog/notes/</loc>
+         <lastmod>2025-10-07</lastmod>
+    </url>
+    <url>
+         <loc>https://uni-lamb.github.io/blog/blog/archive/2025/</loc>
+         <lastmod>2025-10-07</lastmod>
+    </url>
+    <url>
+         <loc>https://uni-lamb.github.io/blog/blog/category/%E6%97%A5%E8%AE%B0/</loc>
+         <lastmod>2025-10-07</lastmod>
+    </url>
 </urlset>
