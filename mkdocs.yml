@@ -31,7 +31,7 @@ theme:
 
 plugins:
   - blog:
-      blog_toc: false
+      blog_toc: true
       archive_date_format: MMMM yyyy
 
 markdown_extensions:

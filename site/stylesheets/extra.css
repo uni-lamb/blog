@@ -79,13 +79,3 @@ font-weight: normal;
     margin-bottom: 1rem;
   }
 }
-
-/* Hide category-based links in the blog navigation and post meta.
-   This keeps date/archive links visible while removing category entries from the UI.
-   Using attribute selector to target generated category URLs. */
-.md-nav a[href*="/category/"],
-.md-nav a[href*="category/"],
-.md-meta__link[href*="/category/"],
-.md-meta__link[href*="category/"] {
-  display: none !important;
-}
