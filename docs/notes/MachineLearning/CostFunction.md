@@ -25,9 +25,9 @@ $$
 机器学习最基础的方法是批量梯度下降 (batch gradient descent)，此处batch指训练时每次都用上了所有数据
 
 $$
-"Repeat until Convergence"{\
-    vb(theta) arrow vb(theta)-alpha grad J\
-}
+&"Repeat until Convergence"{\
+&    vb(theta) arrow vb(theta)-alpha grad J\
+&}
 $$
 
 其中 $alpha$ 称为学习率，一般取 $alpha=0.01,0.03,0.1,0.3,1,3,10$
@@ -64,7 +64,7 @@ $$
 
 $$
 &pdv(J,theta)=frac(1,2m)vb((2X^T X theta-2X^T Y))=frac(1,m)vb(X^T X theta-X^T Y)=0\
-<=>&vb(X^T X theta=X^T Y,theta=(X^T X)^(-1)X^T Y)
+<=>&vb(X^T X theta=X^T Y),vb(theta=(X^T X)^(-1)X^T Y)
 $$
 
 ## 逻辑回归
