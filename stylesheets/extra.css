@@ -1,0 +1,81 @@
+.typst-math > svg {
+    overflow: visible;
+}
+div.typst-math {
+    display: flex;
+    justify-content: center;
+}
+
+/*
+    https://v3.tailwindcss.com/docs/screen-readers
+    will interrupt the selection, thus unusable
+*/
+.sr-only {
+    position: absolute;
+    left: -9999px;
+}
+
+@import url('https://static.zeoseven.com/zsft/292/main/result.css');
+
+body {
+font-family: "LXGW WenKai";
+font-weight: normal;
+}
+
+
+/* button.md-top {
+    font-family: LXGW WenKai;
+    font-size: 16px;
+    font-weight: lighter;
+} */
+
+/* About page styles */
+.about-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.about-text {
+  flex: 1;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.about-text p {
+  margin: 0.5rem 0;
+}
+
+.about-avatar {
+  flex-shrink: 0;
+}
+
+.avatar-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #e0e0e0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.avatar-img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .avatar-img {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 1rem;
+  }
+}
