@@ -1,0 +1,3 @@
+[submodule "typst-packages/physica"]
+	path = typst-packages/physica
+	url = https://github.com/Leedehai/typst-physics.git
