@@ -75,6 +75,8 @@ extra:
   typst_cache_dir: .typst_cache
   typst_prelude: |
     #set text(font: "LXGW WenKai")
-    #set code(font: "LXGW WenKai")
-    #set heading(text: font: "LXGW WenKai")
+    #show math: it => {
+      set text(font: "LXGW WenKai")
+      it
+    }
     #import "physica/physica.typ": *

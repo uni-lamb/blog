@@ -37,6 +37,14 @@ jobs:
           # Refresh font cache so typst/fontconfig can find newly installed fonts
           fc-cache -f -v || true
 
+      - name: Cache installed fonts
+        uses: actions/cache@v4
+        with:
+          key: fonts-${{ runner.os }}-${{ env.cache_id }}
+          path: ~/.local/share/fonts
+          restore-keys: |
+            fonts-
+
 
       # --- 新增：安装 Typst 编译器 ---
       - name: Install Typst
