@@ -18,6 +18,11 @@ import re
 from functools import cache
 from subprocess import CalledProcessError, run
 from typing import TYPE_CHECKING
+import hashlib
+import os
+import shutil
+import tempfile
+from pathlib import Path
 
 if TYPE_CHECKING:
     from mkdocs.config.defaults import MkDocsConfig
@@ -41,6 +46,17 @@ def on_page_markdown(
 
 def on_post_page(output: str, page: Page, config: MkDocsConfig) -> str | None:
     if should_render(page):
+        # Read configuration for typst integration from mkdocs config.extra
+        extra = getattr(config, "extra", {}) or {}
+        global _TYPST_CMD, _TYPST_CWD, _TYPST_CACHE_DIR
+        _TYPST_CMD = extra.get("typst_cmd", _TYPST_CMD)
+        _TYPST_CWD = extra.get("typst_cwd", _TYPST_CWD)
+        _TYPST_CACHE_DIR = extra.get("typst_cache_dir", _TYPST_CACHE_DIR)
+        # Read user prelude (imports) to inject before every compile
+        global _TYPST_USER_PRELUDE
+        _TYPST_USER_PRELUDE = extra.get("typst_prelude", _TYPST_USER_PRELUDE)
+        _ensure_typst_available()
+
         output = re.sub(
             r'<span class="arithmatex">(.+?)</span>', render_inline_math, output
         )
@@ -104,22 +120,91 @@ def typst_compile(
 
     https://github.com/marimo-team/marimo/discussions/2441
     """
+    # Use a disk cache to avoid recompiling identical fragments across builds
+    cache_dir = Path(_TYPST_CACHE_DIR or Path.cwd() / ".typst_cache")
     try:
-        return run(
-            ["typst", "compile", "-", "-", "--format", format],
-            input=(prelude + typ).encode(),
+        cache_dir.mkdir(parents=True, exist_ok=True)
+    except Exception:
+        cache_dir = Path(tempfile.gettempdir())
+
+    # Merge user prelude (if any) so cache key and input include it
+    user_prelude = (_TYPST_USER_PRELUDE or "")
+    final_prelude = user_prelude + prelude
+    key = hashlib.sha256((final_prelude + typ + format).encode()).hexdigest()
+    cache_file = cache_dir / f"{key}.svg"
+    if cache_file.exists():
+        return cache_file.read_bytes()
+
+    cmd = [_TYPST_CMD, "compile", "-", "-", "--format", format]
+    cwd = _TYPST_CWD or None
+    try:
+        proc = run(
+            cmd,
+            input=(final_prelude + typ).encode(),
             check=True,
             capture_output=True,
-        ).stdout
-    except CalledProcessError as err:
-        raise RuntimeError(
-            f"""
-Failed to render a typst math:
-
-```typst
-{typ}
-```
-
-{err.stderr.decode()}
-""".strip()
+            cwd=cwd,
         )
+        out = proc.stdout
+        # Validate that output looks like SVG
+        if not out.lstrip().startswith(b"<svg"):
+            # Fallback: wrap the original typ text into a simple SVG so page still renders
+            fallback = (
+                '<svg xmlns="http://www.w3.org/2000/svg"><desc>typst fallback</desc><text x="0" y="14' +
+                '">' + html.escape(typ) + '</text></svg>'
+            ).encode()
+            out = fallback
+
+        # Atomically write cache
+        try:
+            tmp_path = cache_file.with_suffix(".tmp")
+            tmp_path.write_bytes(out)
+            os.replace(tmp_path, cache_file)
+        except Exception:
+            pass
+
+        return out
+    except FileNotFoundError:
+        # typst not installed
+        return (
+            '<svg xmlns="http://www.w3.org/2000/svg"><desc>typst not found</desc><text x="0" y="14">'
+            + html.escape(typ)
+            + '</text></svg>'
+        ).encode()
+    except CalledProcessError as err:
+        # On compilation failure, don't abort the build; return a readable SVG fallback
+        err_msg = err.stderr.decode(errors="ignore")
+        fallback = (
+            '<svg xmlns="http://www.w3.org/2000/svg"><desc>typst error</desc><text x="0" y="14">'
+            + html.escape(typ)
+            + '</text><text x="0" y="32">'
+            + html.escape(err_msg[:200])
+            + '</text></svg>'
+        ).encode()
+        return fallback
+
+
+# Module-level configuration defaults
+_TYPST_CMD = "typst"
+_TYPST_CWD: str | None = None
+_TYPST_CACHE_DIR: str | None = None
+_TYPST_AVAILABLE = None
+_TYPST_USER_PRELUDE: str | None = None
+
+
+def _ensure_typst_available() -> None:
+    global _TYPST_AVAILABLE
+    if _TYPST_AVAILABLE is not None:
+        return
+    cmd = shutil.which(_TYPST_CMD)
+    if not cmd:
+        print(f"[typst_math] typst executable not found: '{_TYPST_CMD}' (will use fallback SVG)")
+        _TYPST_AVAILABLE = False
+        return
+    try:
+        proc = run([_TYPST_CMD, "--version"], capture_output=True, check=True)
+        ver = proc.stdout.decode().strip() or proc.stderr.decode().strip()
+        print(f"[typst_math] typst found: {ver}")
+        _TYPST_AVAILABLE = True
+    except Exception:
+        _TYPST_AVAILABLE = False

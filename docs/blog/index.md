@@ -6,9 +6,9 @@ math: typst
 
 this $E=m c^2$ is a typst test
 
-$$
+$
 E=m c^2
-$$
+$
 
 ```mermaid
 graph LR;

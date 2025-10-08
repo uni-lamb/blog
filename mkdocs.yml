@@ -49,3 +49,15 @@ hooks:
 extra_css:
   - stylesheets/extra.css
   - https://static.zeoseven.com/zsft/292/main/result.css
+
+extra:
+  # Typst integration settings (hook reads these)
+  # typst_cmd: path to typst executable (default: typst)
+  # typst_cwd: working directory for typst process (useful when using submodules)
+  # typst_cache_dir: directory to store typst-generated svg cache
+  # typst_prelude: lines to inject before every typst compile (e.g., import statements)
+  typst_cmd: typst
+  typst_cwd: ./typst-packages
+  typst_cache_dir: .typst_cache
+  typst_prelude: |
+    #import "physica": *
