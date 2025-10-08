@@ -1,6 +1,18 @@
 site_name: ハラショー
 site_url: https://uni-lamb.github.io/blog/
 
+nav:
+  - Home: index.md
+  - 笔记:
+    - notes/index.md
+    - Machine Learning: 
+      - notes/MachineLearning/index.md
+      - 决策树: notes/MachineLearning/DecisionTree.md
+      - 代价函数: notes/MachineLearning/CostFunction.md
+  - 博客:
+    - blog/index.md
+  - 关于我:
+    - about/index.md
 
 theme: 
   name: material
@@ -26,6 +38,8 @@ theme:
     - navigation.tracking
     - navigation.footer
     - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.indexes
 
 
 

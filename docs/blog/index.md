@@ -6,11 +6,11 @@ math: typst
 
 this $E=m c^2$ is a typst test
 
-$
+$$
 E=m c^2
-$
+$$
 
-or \(n\) ?
+or \(E=m c^2\) 
 
 \[E=m c^2\]
 

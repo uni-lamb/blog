@@ -71,7 +71,7 @@ def on_post_page(output: str, page: Page, config: MkDocsConfig) -> str | None:
 
 
 def render_inline_math(match: re.Match[str]) -> str:
-    src = html.unescape(match.group(1)).removeprefix("$(").removesuffix(")$").strip()
+    src = html.unescape(match.group(1)).removeprefix(R"\(").removesuffix(R"\)").strip()
     typ = f"${src}$"
     return (
         '<span class="typst-math">'
@@ -82,8 +82,8 @@ def render_inline_math(match: re.Match[str]) -> str:
 
 
 def render_block_math(match: re.Match[str]) -> str:
-    src = html.unescape(match.group(1)).removeprefix("$[").removesuffix("]$").strip()
-    typ = f"$\n{src}\n$"
+    src = html.unescape(match.group(1)).removeprefix(R"\[").removesuffix(R"\]").strip()
+    typ = f"$ {src} $"
     return (
         '<div class="typst-math">'
         + fix_svg(typst_compile(typ))
