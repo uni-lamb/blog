@@ -74,7 +74,6 @@ extra:
   typst_cwd: ./typst-packages
   typst_cache_dir: .typst_cache
   typst_prelude: |
-    #set text(font: "LXGW WenKai")
     #show math: it => {
       set text(font: "LXGW WenKai")
       it
