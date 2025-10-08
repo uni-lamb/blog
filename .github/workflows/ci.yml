@@ -18,32 +18,35 @@ jobs:
           git config user.name github-actions[bot] # 可以改为你的用户名，但建议保持 bot
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com # 可以改为你的邮箱
 
-      - name: Install Chinese fonts (Noto CJK + optional LXGW WenKai)
-        run: |
-          set -e
-          # Install a reliable system CJK font first (fast and available on ubuntu)
-          sudo apt-get update
-          sudo apt-get install -y fonts-noto-cjk unzip curl || true
-          mkdir -p ~/.local/share/fonts
-
-          # Try to download LXGW WenKai release zip (optional extra font). If not present, continue.
-          if curl -fsSL "https://github.com/LXGW/LXGW-WenKai/releases/latest/download/LXGWWenKai.zip" -o /tmp/wenkai.zip; then
-            unzip -q /tmp/wenkai.zip -d /tmp/wenkai
-            find /tmp/wenkai -type f \( -name '*.ttf' -o -name '*.otf' \) -exec cp {} ~/.local/share/fonts/ \;
-          else
-            echo "LXGW WenKai release zip not found; continuing with Noto CJK installed"
-          fi
-
-          # Refresh font cache so typst/fontconfig can find newly installed fonts
-          fc-cache -f -v || true
-
-      - name: Cache installed fonts
+      - name: Restore fonts cache
         uses: actions/cache@v4
         with:
           key: fonts-${{ runner.os }}-${{ env.cache_id }}
           path: ~/.local/share/fonts
           restore-keys: |
             fonts-
+
+      - name: Ensure fonts present (install if missing)
+        run: |
+          set -e
+          if [ -n "$(ls -A ~/.local/share/fonts 2>/dev/null)" ]; then
+            echo "Fonts restored from cache, skipping apt install"
+          else
+            echo "Installing fonts via apt..."
+            sudo apt-get update
+            sudo apt-get install -y fonts-noto-cjk unzip curl || true
+            mkdir -p ~/.local/share/fonts
+            # Copy system-installed fonts into user dir for caching
+            find /usr/share/fonts -type f \( -name '*.ttf' -o -name '*.otf' \) -exec cp {} ~/.local/share/fonts/ \;
+          fi
+          # Try optional LXGW download (best-effort)
+          if curl -fsSL "https://github.com/LXGW/LXGW-WenKai/releases/latest/download/LXGWWenKai.zip" -o /tmp/wenkai.zip; then
+            unzip -q /tmp/wenkai.zip -d /tmp/wenkai
+            find /tmp/wenkai -type f \( -name '*.ttf' -o -name '*.otf' \) -exec cp {} ~/.local/share/fonts/ \;
+          else
+            echo "LXGW WenKai release zip not found; continuing"
+          fi
+          fc-cache -f -v || true
 
 
       # --- 新增：安装 Typst 编译器 ---
