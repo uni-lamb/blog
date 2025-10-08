@@ -18,6 +18,22 @@ jobs:
           git config user.name github-actions[bot] # 可以改为你的用户名，但建议保持 bot
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com # 可以改为你的邮箱
 
+      - name: Install LXGW WenKai font (for Chinese glyphs)
+        run: |
+          set -e
+          mkdir -p ~/.local/share/fonts
+          # Try download release zip; if that fails, fallback to cloning the repo
+          if curl -fsSL "https://github.com/LXGW/LXGW-WenKai/releases/latest/download/LXGWWenKai.zip" -o /tmp/wenkai.zip; then
+            unzip -q /tmp/wenkai.zip -d /tmp/wenkai
+            find /tmp/wenkai -type f \( -name '*.ttf' -o -name '*.otf' \) -exec cp {} ~/.local/share/fonts/ \;
+          else
+            git clone --depth 1 https://github.com/LXGW/LXGW-WenKai.git /tmp/LXGW-WenKai
+            find /tmp/LXGW-WenKai -type f \( -name '*.ttf' -o -name '*.otf' \) -exec cp {} ~/.local/share/fonts/ \;
+          fi
+          # Refresh font cache
+          fc-cache -f -v || true
+
+
       # --- 新增：安装 Typst 编译器 ---
       - name: Install Typst
         run: |

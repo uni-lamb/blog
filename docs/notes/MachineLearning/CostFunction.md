@@ -48,7 +48,7 @@ $$
     dots.v,dots.,dots.v;
     x_0^((n)),dots,x_n^((n))
 ),
-"最优的参数为" vb(theta)=vb((X^T X)^(-1)X^T y)
+"then" vb(theta)=vb((X^T X)^(-1)X^T y)
 $$
 
 #### 证明正则方程法
@@ -64,7 +64,7 @@ $$
 
 $$
 &pdv(J,theta)=frac(1,2m)vb((2X^T X theta-2X^T Y))=frac(1,m)vb(X^T X theta-X^T Y)=0\
-<=>&X^T X theta=X^T Y,theta=(X^T X)^(-1)X^T Y
+<=>&vb(X^T X theta=X^T Y,theta=(X^T X)^(-1)X^T Y)
 $$
 
 ## 逻辑回归
@@ -88,7 +88,7 @@ $$
 3. 链接函数： $g:g(mu_i)=eta_i$,将均值与线性预测器相连接的映射
 
 $$
-"指数族形如"f(y;theta)=h(y)exp(eta(theta)T(y)-A(theta)),"特别的，均值"E(T(y))=pdv(A,eta),"方差"Var(T(y))=pdv(A,eta,2)
+"指数族形如"f(y;theta)=h(y)exp(eta(theta)T(y)-A(theta)),"特别的，均值"E(T(y))=pdv(A,eta),"方差"V\ar(T(y))=pdv(A,eta,2)
 $$
 
 下面我们分别对Gauss分布和Bernoulli分布进行探讨，后者正是逻辑回归的基础：
@@ -99,14 +99,14 @@ GLM中简化处理Gauss分布的方差 $sigma^2$ 是常量
 
 $$
 f(y;mu)=frac(1,sqrt(2pi sigma^2))exp(-frac((y-mu)^2,2sigma^2))=exp(-frac(y^2,2sigma^2)-1/2 log(2pi sigma^2))dot exp(frac(mu,sigma^2)y-frac(mu^2,2sigma^2))\
-eta(mu)=frac(mu,sigma^2),T(y)=y,E(y)=pdv(,eta)1/2 eta^2 sigma^2=mu,Var(y)=pdv(,eta,2)1/2 eta^2 sigma^2=sigma^2
+eta(mu)=frac(mu,sigma^2),T(y)=y,E(y)=pdv(,eta)1/2 eta^2 sigma^2=mu,V\ar(y)=pdv(,eta,2)1/2 eta^2 sigma^2=sigma^2
 $$
 
 #### Bernoulli分布
 
 $$
 f(y;pi)=pi^y (1-pi)^(1-y)=exp(y log(pi/(1-pi))+log(1−pi))\
-eta(pi)=log(pi/(1-pi)),T(y)=y,E(y)=pdv(,eta)(-log(1-pi))=pi,Var(y)=pdv(,eta,2)(-log(1-pi))=pi(1-pi)
+eta(pi)=log(pi/(1-pi)),T(y)=y,E(y)=pdv(,eta)(-log(1-pi))=pi,V\ar(y)=pdv(,eta,2)(-log(1-pi))=pi(1-pi)
 $$
 
 特别注意到此处链接函数 $g(t)=log frac(t,1-t)$ 其逆就是上面的对数几率函数
