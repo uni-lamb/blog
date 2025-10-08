@@ -60,4 +60,4 @@ extra:
   typst_cwd: ./typst-packages
   typst_cache_dir: .typst_cache
   typst_prelude: |
-    #import "physica": *
+    #import "physica/physica.typ": *
