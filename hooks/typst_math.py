@@ -15,7 +15,7 @@ from __future__ import annotations
 
 import html
 import re
-from functools import cache
+# functools.cache removed to avoid in-process caching inconsistencies
 from subprocess import CalledProcessError, run
 from typing import TYPE_CHECKING
 import hashlib
@@ -109,7 +109,6 @@ def fix_svg(svg: bytes) -> str:
     )
 
 
-@cache
 def typst_compile(
     typ: str,
     *,
@@ -208,3 +207,20 @@ def _ensure_typst_available() -> None:
         _TYPST_AVAILABLE = True
     except Exception:
         _TYPST_AVAILABLE = False
+
+
+def typst_clear_cache() -> None:
+    """Clear the on-disk typst svg cache directory used by the hook.
+
+    Call this during development to force re-rendering of all math fragments.
+    This function will ignore errors.
+    """
+    try:
+        cache_dir = Path(_TYPST_CACHE_DIR or Path.cwd() / ".typst_cache")
+        if cache_dir.exists():
+            shutil.rmtree(cache_dir)
+            print(f"[typst_math] cleared typst cache: {cache_dir}")
+        else:
+            print(f"[typst_math] typst cache not found: {cache_dir}")
+    except Exception as e:
+        print(f"[typst_math] failed to clear typst cache: {e}")

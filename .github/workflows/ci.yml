@@ -18,19 +18,23 @@ jobs:
           git config user.name github-actions[bot] # 可以改为你的用户名，但建议保持 bot
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com # 可以改为你的邮箱
 
-      - name: Install LXGW WenKai font (for Chinese glyphs)
+      - name: Install Chinese fonts (Noto CJK + optional LXGW WenKai)
         run: |
           set -e
+          # Install a reliable system CJK font first (fast and available on ubuntu)
+          sudo apt-get update
+          sudo apt-get install -y fonts-noto-cjk unzip curl || true
           mkdir -p ~/.local/share/fonts
-          # Try download release zip; if that fails, fallback to cloning the repo
+
+          # Try to download LXGW WenKai release zip (optional extra font). If not present, continue.
           if curl -fsSL "https://github.com/LXGW/LXGW-WenKai/releases/latest/download/LXGWWenKai.zip" -o /tmp/wenkai.zip; then
             unzip -q /tmp/wenkai.zip -d /tmp/wenkai
             find /tmp/wenkai -type f \( -name '*.ttf' -o -name '*.otf' \) -exec cp {} ~/.local/share/fonts/ \;
           else
-            git clone --depth 1 https://github.com/LXGW/LXGW-WenKai.git /tmp/LXGW-WenKai
-            find /tmp/LXGW-WenKai -type f \( -name '*.ttf' -o -name '*.otf' \) -exec cp {} ~/.local/share/fonts/ \;
+            echo "LXGW WenKai release zip not found; continuing with Noto CJK installed"
           fi
-          # Refresh font cache
+
+          # Refresh font cache so typst/fontconfig can find newly installed fonts
           fc-cache -f -v || true
 
 
@@ -61,6 +65,11 @@ jobs:
           path: .typst_cache
           restore-keys: |
             typst-cache-
+      - name: Clear typst svg cache (development)
+        if: always()
+        run: |
+          echo "Clearing .typst_cache to force recompile of typst fragments"
+          rm -rf .typst_cache || true
       - run: pip install mkdocs-material # 需要添加你项目用到的其他依赖
       - run: pip install pymdown-extensions # 你的项目使用了 pymdownx 扩展
       # 如果你的 typst_math.py hook 还有其他 Python 依赖，请在这里添加 pip install 命令
