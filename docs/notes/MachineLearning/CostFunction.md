@@ -104,28 +104,28 @@ $$
 
 ### Novikoff定理
 
-做一个简化，令 $vh(w_i)=(vb(w_i^T),b)^T,vh(x_i)=(vb(x_i),1)$
+做一个简化，令 $vu(w_i)=(vb(w_i^T),b)^T,vu(x_i)=(vb(x_i),1)$
 
 !!! note "Novikoff定理"
 
-    - 假设数据集线性可分，存在超平面 $vh(w_i dot x_i)=0,||vh(w#sub(opt))||=1$ 分割数据集，且存在 $gamma>0,forall i,y_i vh(w_i dot x_i)>=gamma$
+    - 假设数据集线性可分，存在超平面 $vu(w_i dot x_i)=0,||vu(w#sub(opt))||=1$ 分割数据集，且存在 $gamma>0,forall i,y_i vu(w_i dot x_i)>=gamma$
     - 令 $R=max_i ||x_i||$ ，感知机算法在数据集上的误分类次数 $k<=(R^2)/(gamma^2)$
 
 证明：
 
 (1) 由于数据集有限，直接取 $gamma=min_i (vb(w_i dot x_i)+b)>=0$ 即可
 
-(2) PLA算法给出 $vh(w_k)=vh(w_(k-1))+eta y_i vh(x_i)$
+(2) PLA算法给出 $vu(w_k)=vu(w_(k-1))+eta y_i vu(x_i)$
 
-- 由于 $vh(w_k dot w#sub(opt))=vh(w_(k-1) dot w#sub(opt)) + eta y_i vh(x_i dot w#sub(opt))>=vh(w_(k-1)dot w#sub(opt))+eta gamma$，所以有
+- 由于 $vu(w_k dot w#sub(opt))=vu(w_(k-1) dot w#sub(opt)) + eta y_i vu(x_i dot w#sub(opt))>=vu(w_(k-1)dot w#sub(opt))+eta gamma$，所以有
 
 $$
-vh(w_k dot w#sub(opt))>=vh(w_0 dot w#sub(opt))+k eta gamma = k eta gamma
+vu(w_k dot w#sub(opt))>=vu(w_0 dot w#sub(opt))+k eta gamma = k eta gamma
 $$
 
-- 范数 $||w_k||^2=||w_(k-1)||^2+2 eta y_i vh(w_(k-1)dot x_i)+eta^2 ||x_i||^2<=||w_(k-1)||^2+eta^2 ||x_i||^2<=||w_(k-1)||^2+eta^2 R^2$, 所以 $||w_k||^2<=k eta^2 R^2$
+- 范数 $||w_k||^2=||w_(k-1)||^2+2 eta y_i vu(w_(k-1)dot x_i)+eta^2 ||x_i||^2<=||w_(k-1)||^2+eta^2 ||x_i||^2<=||w_(k-1)||^2+eta^2 R^2$, 所以 $||w_k||^2<=k eta^2 R^2$
 
-以上两不等式又可得到 $k eta gamma <=vh(w_k dot w#sub(opt))<=sqrt(k eta^2 R^2)$ ，即 $k<=(R^2)/(gamma^2)$ 
+以上两不等式又可得到 $k eta gamma <=vu(w_k dot w#sub(opt))<=sqrt(k eta^2 R^2)$ ，即 $k<=(R^2)/(gamma^2)$ 
 
 Novigoff定理说明，误差迭代次数是有上限的，在有限轮迭代后一定能收敛。
 

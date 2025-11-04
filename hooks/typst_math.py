@@ -63,8 +63,8 @@ def on_post_page(output: str, page: Page, config: MkDocsConfig) -> str | None:
 
         # Add this new substitution for typst-native blocks
         output = re.sub(
-            # Matches a <p> tag containing $...$ with newlines
-            r"<p>\$\s*<br />\s*([\s\S]+?)\s*<br />\s*\$</p>",
+            # Matches <p>$...$</p> allowing any whitespace and <br /> tags inside
+            r"<p>\$(?:\s|<br\s*/?>)*([\s\S]+?)(?:\s|<br\s*/?>)*\$</p>",
             render_typst_block_math,
             output,
         )
