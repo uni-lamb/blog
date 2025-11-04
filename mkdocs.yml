@@ -7,6 +7,7 @@ nav:
     - notes/index.md
     - Machine Learning: 
       - notes/MachineLearning/index.md
+      - 数学基础: notes/MachineLearning/MathFoundation.md
       - 决策树: notes/MachineLearning/DecisionTree.md
       - 回归与分类: notes/MachineLearning/CostFunction.md
       - 贝叶斯理论: notes/MachineLearning/Bayes.md
@@ -14,8 +15,6 @@ nav:
       - 聚类算法: notes/MachineLearning/Clustering.md
       - 神经网络: notes/MachineLearning/NeuralNetwork.md
       - 特征工程: notes/MachineLearning/FeatureEngineering.md
-    - Deep Learning:
-    - Reinforcement Learning:
   - 博客:
     - blog/index.md
   - 关于我:
