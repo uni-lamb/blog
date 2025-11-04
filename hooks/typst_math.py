@@ -61,6 +61,14 @@ def on_post_page(output: str, page: Page, config: MkDocsConfig) -> str | None:
             r'<span class="arithmatex">(.+?)</span>', render_inline_math, output
         )
 
+        # Add this new substitution for typst-native blocks
+        output = re.sub(
+            # Matches a <p> tag containing $...$ with newlines
+            r"<p>\$\s*<br />\s*([\s\S]+?)\s*<br />\s*\$</p>",
+            render_typst_block_math,
+            output,
+        )
+
         output = re.sub(
             r'<div class="arithmatex">(.+?)</div>',
             render_block_math,
@@ -83,6 +91,18 @@ def render_inline_math(match: re.Match[str]) -> str:
 
 def render_block_math(match: re.Match[str]) -> str:
     src = html.unescape(match.group(1)).removeprefix(R"\[").removesuffix(R"\]").strip()
+    typ = f"$ {src} $"
+    return (
+        '<div class="typst-math">'
+        + fix_svg(typst_compile(typ))
+        + for_screen_reader(typ)
+        + "</div>"
+    )
+
+
+def render_typst_block_math(match: re.Match[str]) -> str:
+    """Render a typst math block that is not handled by arithmatex."""
+    src = match.group(1).strip()
     typ = f"$ {src} $"
     return (
         '<div class="typst-math">'

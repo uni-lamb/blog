@@ -8,11 +8,20 @@ nav:
     - Machine Learning: 
       - notes/MachineLearning/index.md
       - 决策树: notes/MachineLearning/DecisionTree.md
-      - 代价函数: notes/MachineLearning/CostFunction.md
+      - 回归与分类: notes/MachineLearning/CostFunction.md
+      - 贝叶斯理论: notes/MachineLearning/Bayes.md
+      - 支持向量机: notes/MachineLearning/SVM.md
+      - 聚类算法: notes/MachineLearning/Clustering.md
+      - 神经网络: notes/MachineLearning/NeuralNetwork.md
+      - 特征工程: notes/MachineLearning/FeatureEngineering.md
+    - Deep Learning:
+    - Reinforcement Learning:
   - 博客:
     - blog/index.md
   - 关于我:
     - about/index.md
+  - 友链:
+    - friends/友链.md
 
 theme: 
   name: material
@@ -49,6 +58,9 @@ plugins:
       archive_date_format: MMMM yyyy
 
 markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.superfences:
@@ -56,6 +68,8 @@ markdown_extensions:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tilde # 渲染~~表示删除线
+#  - typst # 需要在code block第一行标记"// typst preview"
           
 hooks:
   - hooks/typst_math.py

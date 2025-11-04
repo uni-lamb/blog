@@ -83,6 +83,5 @@ jobs:
           rm -rf .typst_cache || true
       - run: pip install mkdocs-material # 需要添加你项目用到的其他依赖
       - run: pip install pymdown-extensions # 你的项目使用了 pymdownx 扩展
-      # 如果你的 typst_math.py hook 还有其他 Python 依赖，请在这里添加 pip install 命令
-      
+#      - run: pip install markdown-typst # svg绘图依赖，if needed
       - run: mkdocs gh-deploy --force
