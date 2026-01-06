@@ -1,18 +1,22 @@
-site_name: ハラショー
+site_name: 青草地
 site_url: https://uni-lamb.github.io/blog/
 
 nav:
   - Home: index.md
   - 笔记:
     - notes/index.md
+    - Physics:
+      - notes/Physics/index.md
+      - 恒等式证明: notes/Physics/Tensor/Indentity.md
     - Machine Learning: 
       - notes/MachineLearning/index.md
       - 数学基础: notes/MachineLearning/MathFoundation.md
       - 决策树: notes/MachineLearning/DecisionTree.md
-      - 回归与分类: notes/MachineLearning/CostFunction.md
-      - 贝叶斯理论: notes/MachineLearning/Bayes.md
-      - 支持向量机: notes/MachineLearning/SVM.md
+      - 基本回归理论: notes/MachineLearning/CostFunction.md
+      - 概率图理论: notes/MachineLearning/Bayes.md
+      - 基本分类算法: notes/MachineLearning/SVM.md
       - 聚类算法: notes/MachineLearning/Clustering.md
+      - 提升: notes/MachineLearning/Boosting.md
       - 神经网络: notes/MachineLearning/NeuralNetwork.md
       - 特征工程: notes/MachineLearning/FeatureEngineering.md
   - 博客:

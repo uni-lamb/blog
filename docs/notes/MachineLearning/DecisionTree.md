@@ -33,16 +33,16 @@ math: typst
 
 对于任意的两个离散变量 $X,Y$ 联合熵定义为
 
-$$
+$
 H(X,Y)=-sum_(x in cal(X)) sum_(y in cal(Y)) P(x,y)log_2 P(x,y)
-$$
+$
 
 定义条件熵，来说明获得 $X$ 的信息时， $Y$ 的不确定度下降了多少。使用贝叶斯：
 
-$$
+$
 H(Y|X)&=sum_(x in cal(X)) P(x)H(Y|X=x)=-sum_(x in cal(X)) P(x) {-sum_(y in cal(Y)) P(y|x)log_2 P(y|x)}\
 &=-sum_(x in cal(X)) sum_(y in cal(Y)) P(x,y)log_2 P(y|x)
-$$
+$
 
 联立以上给出链式法则：
 
@@ -56,11 +56,15 @@ $$
 
 #### KL散度，相对熵
 
-定义两个概率分布的质量密度函数 $p(x),q(x)$ 之间的KL散度为相对熵
+定义两个概率分布的质量密度函数 $p(x),q(x)$ 之间的KL散度为相对熵。它表示用近似分布 $q$ 来表示真实分布 $p$ 时的信息损失。
 
-$$
+$
 D(p||q)=sum_(x in cal(X)) p(x) log frac(p(x),q(x))=E_p (log frac(p(x),q(x)))
-$$
+$
+
+其中 $log frac(p(x),q(x))$ 表示意外程度（由信息熵的 $-log p$ 推导出），外面的 $p$ 表示加权求期望。
+
+KL散度是一个被广泛应用于机器学习的概念，在模型蒸馏、训练生成模型、模型对齐等任务中都有重要应用。
 
 #### 互信息，信息增益
 

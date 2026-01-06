@@ -20,6 +20,16 @@ $$
 J(vb(theta))=1/(2m) sum_(i=1)^m (h_theta (vb(x_i))-y_i)^2
 $$
 
+### 线性回归的概率解释
+
+为什么选择平方代价函数？实际上这基于线性拟合的高斯噪声假设 $y=vb(w^T x)+b+epsilon,quad epsilon ~ N(0,sigma^2)$ 。那么给定输入 $vb(x)$ ，输出 $y$ 的似然为
+
+$
+  P(y|x)=frac(1,sqrt(2 pi) sigma) exp(-frac((y-vb(w^T x)-b)^2,2 sigma^2))
+$
+
+最大似然估计MLE指出，最大化似然等价于最小化负对数似然，因此优化目标是 $min_(vb(w),b) (y-vb(w^T x)-b)^2$
+
 ### 多项式回归
 
 本质是当特征拟合不线性时，对输入特征进行非线性变换升维 $Phi: RR^n arrow RR^(k times n), k$ 为阶数
@@ -79,117 +89,6 @@ $$
 <=>&vb(X^T X theta=X^T Y),vb(theta=(X^T X)^(-1)X^T Y)
 $$
 
-## 感知机
-
-线性回归处理的是连续数据，而对于广泛的离散数据归类问题就不大适配。不过作为基础，感知机（线性分类器）还是值得一提。
-
-假设数据集被分为两类 $y in {0,1}$ , 且我们希望使用一个超平面 $vb(w^T x) + b = 0$ 分割两类数据点。即 $forall y_i=-1,1$ , $vb(w^T x_i) + b >= 0$ 表示 $y_i=1$ , $vb(w^T x_i) + b < 0$ 表示 $y_i=-1$ 。能这样分割的数据集称为线性可分（linearly separable）。
-
-注意到 $-y_i (vb(w^T x)+b)>0$ 恒成立，取代价函数具有点到超平面距离的形式：
-
-$$
-L(vb(w),b)= sum_i 1/(||w||) abs(vb(w^T x_i)+b) = sum_i 1/(||w||) -y_i (vb(w^T x_i)+b)\
-J(vb(w),b)=sum_i -y_i (vb(w^T x_i)+b)
-$$
-
-### PLA
-
-感知机算法（Perceptron Learning Algorithm）不同于一般的BGD，而是接近于一种特殊的batch=1的 SGD。准确来说，PLA不支持梯度下降，因为阶跃函数不可导，无法视为连续参量问题。其特殊性在于，只有当分类错误时才更新参数。
-
-1. 随机初始化参数 $vb(w_0),b_0$ ,一般来说是 $vb(0),0$
-2. 在一个epoch内随机/顺序遍历所有的样本，对于每一个样本 $vb(x_i),y_i$ ：
-   1. 若分类正确 $y_i (vb(w^T x_i)+b)>0$ 则跳过
-   2. 否则，更新参数：$w_k=w_(k-1)+eta y_i x_i,b_k=b_(k-1)+eta y_i, k$ 为迭代次数
-3. 重启一个epoch，直到收敛（一整次遍历无误分类）
-
-### Novikoff定理
-
-做一个简化，令 $vu(w_i)=(vb(w_i^T),b)^T,vu(x_i)=(vb(x_i),1)$
-
-!!! note "Novikoff定理"
-
-    - 假设数据集线性可分，存在超平面 $vu(w_i dot x_i)=0,||vu(w#sub(opt))||=1$ 分割数据集，且存在 $gamma>0,forall i,y_i vu(w_i dot x_i)>=gamma$
-    - 令 $R=max_i ||x_i||$ ，感知机算法在数据集上的误分类次数 $k<=(R^2)/(gamma^2)$
-
-证明：
-
-(1) 由于数据集有限，直接取 $gamma=min_i (vb(w_i dot x_i)+b)>=0$ 即可
-
-(2) PLA算法给出 $vu(w_k)=vu(w_(k-1))+eta y_i vu(x_i)$
-
-- 由于 $vu(w_k dot w#sub(opt))=vu(w_(k-1) dot w#sub(opt)) + eta y_i vu(x_i dot w#sub(opt))>=vu(w_(k-1)dot w#sub(opt))+eta gamma$，所以有
-
-$$
-vu(w_k dot w#sub(opt))>=vu(w_0 dot w#sub(opt))+k eta gamma = k eta gamma
-$$
-
-- 范数 $||w_k||^2=||w_(k-1)||^2+2 eta y_i vu(w_(k-1)dot x_i)+eta^2 ||x_i||^2<=||w_(k-1)||^2+eta^2 ||x_i||^2<=||w_(k-1)||^2+eta^2 R^2$, 所以 $||w_k||^2<=k eta^2 R^2$
-
-以上两不等式又可得到 $k eta gamma <=vu(w_k dot w#sub(opt))<=sqrt(k eta^2 R^2)$ ，即 $k<=(R^2)/(gamma^2)$ 
-
-Novigoff定理说明，误差迭代次数是有上限的，在有限轮迭代后一定能收敛。
-
-## 逻辑斯谛回归
-
-显然用直线切割类适用面很窄，因此我们引入Sigmoid作为逻辑函数。常用的这个被称为对数几率函数 $g(z)=1\/(1+e^(-z))$
-
-使用对数几率函数有许多良好性质：
-
-- 将线性函数 $h_theta (vb(x))=vb(theta^T x)$ 限制在 $[0,1]$ 上
-- 在 $g:RR arrow [0,1]$ 的映射中唯一保持线性可解释性，与概率联系紧密
-- 符合广义线性模型理论（General Linear Model）
-
-### GLM理论
-
-广义线性模型通过三个核心组成部分来描述响应变量与预测变量之间的关系：随机成分、系统成分和链接函数。
-
-1. 随机成分：响应变量 $Y$ 的概率分布，GLM理论要求该分布必须是指数族型
-2. 系统成分：预测变量 $vb(x)$ 的概率组合 $eta_i=vb(theta^T x_i)$ ，其中 $eta_i$ 称为线性预测器
-3. 链接函数： $g:g(mu_i)=eta_i$,将均值与线性预测器相连接的映射
-
-$$
-"指数族形如" f(y;theta)=h(y)exp(eta(theta)T(y)-A(theta)),"特别的，均值" E(T(y))=pdv(A,eta),"方差" V\ar(T(y))=pdv(A,eta,2)
-$$
-
-下面我们分别对Gauss分布和Bernoulli分布进行探讨，后者正是逻辑回归的基础：
-
-#### Gauss分布
-
-GLM中简化处理Gauss分布的方差 $sigma^2$ 是常量
-
-$$
-f(y;mu)=frac(1,sqrt(2pi sigma^2))exp(-frac((y-mu)^2,2sigma^2))=exp(-frac(y^2,2sigma^2)-1/2 log(2pi sigma^2))dot exp(frac(mu,sigma^2)y-frac(mu^2,2sigma^2))\
-eta(mu)=frac(mu,sigma^2),T(y)=y,E(y)=pdv(,eta)(1/2 eta^2 sigma^2)=mu,V\ar(y)=pdv(,eta,2)(1/2 eta^2 sigma^2)=sigma^2
-$$
-
-#### Bernoulli分布
-
-$$
-f(y;pi)=pi^y (1-pi)^(1-y)=exp(y log(pi/(1-pi))+log(1−pi))\
-eta(pi)=log(pi/(1-pi)),T(y)=y,E(y)=pdv(,eta)(-log(1-pi))=pi,V\ar(y)=pdv(,eta,2)(-log(1-pi))=pi(1-pi)
-$$
-
-特别注意到此处链接函数 $g(t)=log frac(t,1-t)$ 其逆就是上面的对数几率函数
-
-### 逻辑回归梯度下降
-
-若继续使用最小二乘法形式的代价，那将是非凸的，极易停在局部最值。
-
-重新定义代价函数为独立统计的联合分布概率的负对数（cost最小就是似然概率最大）
-
-$$
-J(vb(theta))=-1/m sum_(i=1)^m (y_i log h_theta (vb-(x_i))+(1-y_i)log (1- h_theta (vb(x_i))))\
-grad J=1/m sum_(i=1)^m (h_theta (vb(x_i))-y_i)vb(x_i)
-$$
-
-### 一对多问题
-
-接下来将简单的0/1归类问题扩展到任意多种类的离散归类问题。
-
-假设能被分为 $n$ 类，朴素的想法就是分别以一个类为正类，其他为负类建立 $n$ 个分类器，最终的判断以给出概率最高的分类器为准。
-
-延申方向包括无监督学习的归类（多次K-means，甚至不需指定类），softmax回归等等
-
 ## 特征工程引论
 
 如何选取合适的特征，是炼丹的重要话题。普遍而言有三种特征选择方式，即Filter,Wrapper,Embedded。
@@ -213,9 +112,10 @@ $$
 延申发散并添加integral和derivative，就会得到Adam优化器。不过这是后文了。
 
 另外也可以使用正规方程解出最优参数
-$$
+
+$
 vb(theta)=vb((X^T X+lambda underbrace(dmat(0,1,dots.down,1),(n+1)*(n+1)))^(-1) X^T y)
-$$
+$
 
 ### 正则化的解空间
 
@@ -252,7 +152,119 @@ $grad f=-lambda grad g$ 由于要求 $f$ 最小化（指向内部），且 $g$ �
 
 回过头来看，两个定常方程并无差别。也就是说正则惩罚是一个“软约束”，和硬约束效果类似。
 
-$$
+$
 vb(nabla_theta)L_1=vb(nabla_theta)J_0+2lambda theta=0\
 vb(nabla_theta)L_2=vb(nabla_theta)J_0+2mu theta=0
-$$
+$
+
+## 大规模机器学习
+
+如果我们有一个低方差的模型，增加数据集的规模可以帮助你获得更好的结果，代价是BGD方法变得难以承受。
+
+### SGD和Mini BGD
+
+随机梯度下降 (Stochastic Gradient Descent, SGD) 每次只用一个样本来更新参数，而小批量梯度下降 (Mini-Batch Gradient Descent) 则是每次用 $b$ 个样本来更新参数， $1<b<m$ 。
+
+这两种方法都可以有效地减少计算开销，并且在大规模数据集上表现良好（引入噪声，避免陷入局域最优），此外，随机思想使问题Online化了，更适合流数据处理。实践上，SGD被应用于凸优化等需要精调的场景较多。
+
+但SGD还是有三大问题：
+
+1. 固定的学习率 $alpha$ 不合适
+   1. 平坦区域期望大步长
+   2. 陡峭区域期望小步长
+   3. 不同参数期望不同步长
+2. 梯度噪声带来振荡，可以进一步优化
+3. 不同参数更新速度应当不同
+   1. 稀疏特征需要更大步长
+   2. 密集特征需要更小步长
+
+### Momentum系列
+
+动量法发挥惯性的作用，使得平坦区域加速，陡峭区域减速。另外，在“峡谷”中缓解了振荡问题。
+
+$
+f\or vb(theta_i) \in S\et: \
+vb(v)_t=beta vb(v)_(t-1)+(1-beta) vb(nabla_theta) J(theta) \
+vb(theta)_(t+1)=vb(theta)_t-eta vb(v)_t
+$
+
+或者更进一步，加一个预测（Nesterov Accelerated Gradient，NAG），修正小样本导致的梯度方向不佳：
+
+$
+f\or vb(theta_i) \in S\et: \
+vb(v)_t=beta vb(v)_(t-1)+eta vb(nabla_theta) J(vb(theta) - beta vb(v)_(t-1)) \
+vb(theta)_(t+1)=vb(theta)_t-vb(v)_t
+$
+
+动量思想足以应付大多数深度学习任务了。
+
+### Ada系列
+
+另一条修正方向是Adaptive Learning Rate方法，针对历史梯度调整每个参数的学习率。
+
+#### AdaGrad
+
+核心思想是根据**历史梯度的平方和**调整每个参数的学习率，历史梯度平方和越大，学习率越小
+
+$
+G_t=G_(t-1)+[vb(nabla_theta) J(vb(theta))]^2\
+vb(theta)_(t+1)=vb(theta)_t-frac(eta,sqrt(G_t+epsilon)) vb(nabla_theta) J(vb(theta))
+$
+
+AdaGrad适合处理稀疏特征的问题，被广泛应用于NLP等领域。
+
+#### RMSProp
+
+AdaGrad考虑全历史的平方和，会积分饱和（甚至由于平方非负不能脱离饱和？！废物啊）
+
+RMSProp引入指数加权移动平均，使较古老的贡献衰减，避免了饱和（和Momentum类似）
+
+$
+  E[g^2]_t=beta E[g^2]_(t-1)+(1-beta)[vb(nabla_theta) J(vb(theta))]^2\
+  vb(theta)_(t+1)=vb(theta)_t-frac(eta,sqrt(E[g^2]_t+epsilon)) vb(nabla_theta) J(vb(theta))_t
+$
+
+RMSProp广泛应用于循环神经网络（RNN）的训练中。
+
+### Adam
+
+Adaptive Momentum Estimation是目前最流行的优化算法，它结合了动量法和RMSProp的优点，同时考虑一阶矩估计和二阶矩估计
+
+$
+  vb(m)_t=beta_1 vb(m)_(t-1)+(1-beta_1) vb(nabla_theta) J(vb(theta))\
+  vb(v)_t=beta_2 vb(v)_(t-1)+(1-beta_2)[vb(nabla_theta) J(vb(theta))]^2\
+  hat(vb(m))_t=frac(vb(m)_t,1-beta_1^t),hat(vb(v))_t=frac(vb(v)_t,1-beta_2^t)\
+  vb(theta)_(t+1)=vb(theta)_t-frac(eta,sqrt(hat(vb(v))_t)+epsilon) hat(vb(m))_t
+$
+
+Adam实际上属于伪二阶，它使用了梯度的平方来近似Hessian矩阵的对角线，避免了计算二阶导的高昂开销。
+
+#### Adam与高斯牛顿法
+
+Adam的处理思想与单纯形法、高斯牛顿法一脉相承。
+
+**一、单纯形法**：对于一个线性问题 $f(x;theta)=vb(A theta)$ ，寻找一个 $theta^*$ 使得 $vb(A theta^*) arrow y$ 。
+- 单纯数学处理的视角：我们构造了自伴矩阵 $vb(A^T A)$ ，便可得到正规方程 $vb(theta^*)=vb((A^T A))^(-1) A^T y$ 。
+- 几何的视角： $vb(A^T A)$ 描述了参数空间的曲率（线性问题的Hessian矩阵恒定），从而一次性跳到最优解。
+- 代数的视角：对 L2-norm $L(vb(theta))=1/2 ||vb(r(theta))||^2 =1/2 (vb(A theta -y))^T (vb(A theta -y))$ 求导， $nabla L(vb(theta))=vb(r^T pdv(r,theta))=0$ ，也就是梯度 $vb(g)=vb(nabla L)^T=vb(A^T r)=0$ （为了转为列向量）
+
+**二、高斯牛顿法**：如果问题非线性 $f(x;theta)=vb(r(theta))$ ，不妨局部以直代曲，线性化处理： $r(theta)~r(theta_t)+vb(J)Delta theta$ ，其中 $vb(J)$ 为雅可比矩阵 $vb(J)_(i j)=pdv(r_i,theta_j)$ 表征局部曲率
+
+带回单纯形法，即得 $Delta theta =- vb((J^T J))^(-1) vb(J^T r)=- vb(J^T J)^(-1) vb(g)$
+
+高斯牛顿法的高明之处在于，假设了 $L=1/2 ||r||^2$ 的二阶小量展开中，残差一阶项的二次占主导，残差二阶项的一次贡献可忽略，从而将Hessian矩阵 $vb(H)=vb(nabla^2 L)=vb(J^T J)+sum_i r_i pdv^2 (r_i,theta)$ 简化为 $vb(H)~vb(J^T J)$ 。这个假设在残差较小 / 线性化程度高的情况下很优秀。
+
+**三、迭代器**的二阶矩估计：参数较多时计算 $vb(J^T J)$ 也工作量巨大。不如假设该矩阵对角， $(vb(J^T J)^(-1))~d\ia\g(1/(vb(J^T J)_(i i)))$ 。再由统计上随机采样的结论 $E[vb(g g^T)]=E[vb((J^T r)(r^T J))]=vb(J^T J) sigma^2$ ，在参数互不关联时很好的用梯度的平方估计了Hessian。
+
+实际上在CNN时代，Adam是远不如SGD的，因为Hessian矩阵相对“均匀”，同质性；而在Transformer/MLP等网络，Hessian矩阵表现出强烈对角性质（甚至分块对角），异质性，因此Adam得到了推广。
+
+### 战无不胜的控制思想（大雾）
+
+各种优化的本质不过是一个PI控制（×）。~~D还是算了，开销太大。~~
+
+- 梯度下降就是一个比例控制
+- 动量法相当于于一个积分控制
+- NAG引入了预测控制，有点MPC的意思
+- AdaGrad是一个变比例控制，但本质更像积分控制
+- RMSProp纠正了AdaGrad的积分饱和问题，算是滑动窗口法
+- Adam结合了动量和RMSProp
