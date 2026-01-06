@@ -1,0 +1,1818 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://uni-lamb.github.io/blog/blog/">
+      
+      
+        <link rel="prev" href="../notes/MachineLearning/FeatureEngineering/">
+      
+      
+        <link rel="next" href="category/%E6%97%A5%E8%AE%B0/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>A First Take - 青草地</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="https://static.zeoseven.com/zsft/292/main/result.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="amber" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#a-first-take" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="青草地" class="md-header__button md-logo" aria-label="青草地" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            青草地
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              A First Take
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="amber" data-md-color-accent="deep-purple"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="lime"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../notes/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  笔记
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+    
+  
+  博客
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../about/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  关于我
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../friends/%E5%8F%8B%E9%93%BE/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  友链
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="青草地" class="md-nav__button md-logo" aria-label="青草地" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    青草地
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../notes/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    笔记
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    笔记
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../notes/Physics/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Physics
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Physics
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notes/Physics/Tensor/Indentity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    恒等式证明
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../notes/MachineLearning/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Machine Learning
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Machine Learning
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notes/MachineLearning/MathFoundation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数学基础
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notes/MachineLearning/DecisionTree/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    决策树
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notes/MachineLearning/CostFunction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    基本回归理论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notes/MachineLearning/Bayes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    概率图理论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notes/MachineLearning/SVM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    基本分类算法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notes/MachineLearning/Clustering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    聚类算法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notes/MachineLearning/Boosting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    提升
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notes/MachineLearning/NeuralNetwork/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    神经网络
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notes/MachineLearning/FeatureEngineering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    特征工程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="./" class="md-nav__link md-nav__link--active">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    博客
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link md-nav__link--active" for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    博客
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archive
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Archive
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="archive/2025/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    November 2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Categories
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Categories
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="category/%E6%97%A5%E8%AE%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    日记
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../about/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于我
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    关于我
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    友链
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    友链
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../friends/%E5%8F%8B%E9%93%BE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    友链
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        今日事
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        随感
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        你说得对，但是
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+  <div class="md-content" data-md-component="content">
+    <div class="md-content__inner">
+      <header class="md-typeset">
+        <h1 id="a-first-take">A First Take</h1>
+<p>this <span class="typst-math"><svg class="typst-doc" viewBox="0 0 43.07441111111111 7.513000000000001" width="43.07441111111111pt" height="7.513000000000001pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:h5="http://www.w3.org/1999/xhtml">
+    <g>
+        <g class="typst-group">
+            <g>
+                <g class="typst-text" transform="matrix(1 0 0 -1 0 7.513000000000001)">
+                    <use xlink:href="#g61D1BC14AD38C247B46D453BB1D029CE" x="0" y="0" fill="var(--md-typeset-color)" fill-rule="nonzero"/>
+                </g>
+                <g class="typst-text" transform="matrix(1 0 0 -1 11.767555555555557 7.513000000000001)">
+                    <use xlink:href="#g8E79D971ED2DF2360F7CF2540389221" x="0" y="0" fill="var(--md-typeset-color)" fill-rule="nonzero"/>
+                </g>
+                <g class="typst-text" transform="matrix(1 0 0 -1 23.381111111111114 7.513000000000001)">
+                    <use xlink:href="#gC543A0DD24FC38E4C01961C2731D9DD4" x="0" y="0" fill="var(--md-typeset-color)" fill-rule="nonzero"/>
+                </g>
+                <g class="typst-text" transform="matrix(1 0 0 -1 33.03911111111111 7.513000000000001)">
+                    <use xlink:href="#gEACA84B96F3FC9BE6C3E912B349A7BE0" x="0" y="0" fill="var(--md-typeset-color)" fill-rule="nonzero"/>
+                </g>
+                <g class="typst-text" transform="matrix(1 0 0 -1 38.07711111111111 3.5200000000000005)">
+                    <use xlink:href="#g35089A96F4517D19458AAA3BAF36FB65" x="0" y="0" fill="var(--md-typeset-color)" fill-rule="nonzero"/>
+                </g>
+            </g>
+        </g>
+    </g>
+    <defs id="glyph">
+        <symbol id="g61D1BC14AD38C247B46D453BB1D029CE" overflow="visible">
+            <path d="M 0 0m 2.189 7.216 c 0 -0.11000013 0.12100005 -0.16499996 0.352 -0.16499996 c 0.44000006 0 0.6600001 -0.04400015 0.6600001 -0.14300013 c 0 -0.032999992 -0.022000074 -0.11000013 -0.055000067 -0.25300026 l -1.43 -5.753 c -0.054999948 -0.24200004 -0.16499996 -0.385 -0.32999992 -0.44 c -0.07700002 -0.022000015 -0.2750001 -0.033000022 -0.61600006 -0.033000022 c -0.24199998 0 -0.352 -0.021999985 -0.352 -0.253 c 0 -0.121 0.12099999 -0.176 0.352 -0.176 h 5.643 c 0.26399994 0 0.28599977 0.022 0.37400007 0.20899999 l 0.43999958 0.99 c 0.2970004 0.68200004 0.50600004 1.1880001 0.62700033 1.5289999 c -0.022000313 0.09899998 -0.055000305 0.16499996 -0.17600012 0.16499996 c -0.07700014 0 -0.14300013 -0.05499983 -0.1869998 -0.1539998 c -0.2750001 -0.64900017 -0.53900003 -1.144 -0.80300045 -1.496 c -0.43999958 -0.59400004 -1.0889997 -0.814 -2.1229997 -0.814 h -1.595 c -0.11000013 0 -0.18700004 0 -0.23099995 0.011000007 c -0.065999985 0 -0.099000216 0.022000015 -0.099000216 0.055000007 c 0 0.022000015 0.022000074 0.09899998 0.055000067 0.24199998 l 0.7260001 2.937 h 1.0450001 c 0.5169997 0 0.7919998 -0.065999985 0.8470001 -0.20900011 c 0.021999836 -0.05499983 0.032999992 -0.13199997 0.032999992 -0.24199986 c 0 -0.14300013 -0.022000313 -0.319 -0.07700014 -0.5280001 c -0.022000313 -0.055000067 -0.032999992 -0.09899998 -0.032999992 -0.13199997 c 0 -0.109999895 0.065999985 -0.16499996 0.1869998 -0.16499996 c 0.09899998 0 0.16499996 0.08800006 0.20900011 0.25300002 l 0.6160002 2.552 c 0 0.11000013 -0.055000305 0.16499996 -0.17600012 0.16499996 c -0.08799982 0 -0.15400028 -0.07700014 -0.18700027 -0.23099995 c -0.10999966 -0.4289999 -0.25299978 -0.704 -0.43999958 -0.83599997 c -0.18700027 -0.13199997 -0.49500036 -0.19799995 -0.9460001 -0.19799995 h -0.9680002 l 0.63800025 2.5629997 c 0.08799982 0.37400007 0.08799982 0.38500023 0.5499997 0.38500023 h 1.5290003 c 0.5609999 0 0.9459996 -0.055000305 1.1549997 -0.16499996 c 0.3080001 -0.16499996 0.4619999 -0.49500036 0.4619999 -0.99000025 c 0 -0.1869998 -0.01099968 -0.38499975 -0.043999672 -0.572 c 0 -0.021999836 0 -0.05499983 -0.011000156 -0.09899998 v -0.09899998 c 0 -0.12099981 0.05499983 -0.17600012 0.16499996 -0.17600012 c 0.11000013 0 0.17600012 0.09899998 0.19800043 0.3080001 l 0.21999931 1.881 c 0.032999992 0.3080001 -0.043999672 0.34100008 -0.3409996 0.34100008 h -5.4890003 c -0.25300002 0 -0.37400007 -0.011000156 -0.37400007 -0.26399994 Z "/>
+        </symbol>
+        <symbol id="g8E79D971ED2DF2360F7CF2540389221" overflow="visible">
+            <path d="M 0 0m 7.678 4.037 h -6.798 c -0.176 0 -0.264 -0.0880003 -0.264 -0.25300026 c 0 -0.16499996 0.088 -0.25300002 0.264 -0.25300002 h 6.798 c 0.17600012 0 0.26399994 0.08800006 0.26399994 0.25300002 c 0 0.13199997 -0.12099981 0.25300026 -0.26399994 0.25300026 Z m 0 -2.0680003 h -6.798 c -0.176 0 -0.264 -0.08799994 -0.264 -0.25300002 c 0 -0.16499996 0.088 -0.25300002 0.264 -0.25300002 h 6.798 c 0.17600012 0 0.26399994 0.08800006 0.26399994 0.25300002 c 0 0.143 -0.12099981 0.25300002 -0.26399994 0.25300002 Z "/>
+        </symbol>
+        <symbol id="gC543A0DD24FC38E4C01961C2731D9DD4" overflow="visible">
+            <path d="M 0 0m 7.2269998 4.862 c -0.671 0 -1.2539997 -0.32999992 -1.7489996 -0.9790001 c -0.09899998 0.64900017 -0.5170002 0.9790001 -1.2650003 0.9790001 c -0.6489999 0 -1.2099998 -0.28599977 -1.6719999 -0.86899996 c -0.08799982 0.48399973 -0.4729998 0.86899996 -1.0339999 0.86899996 c -0.45099998 0 -0.78099996 -0.36299992 -1.012 -1.0780001 c -0.12099999 -0.352 -0.176 -0.5609999 -0.176 -0.62699986 c 0 -0.09899998 0.055000007 -0.15400004 0.176 -0.15400004 c 0.055000007 0 0.088 0.010999918 0.12099999 0.032999992 c 0.055000007 0.09899998 0.088 0.17599988 0.110000014 0.25300002 c 0.19800001 0.83599997 0.45100003 1.2539997 0.74799997 1.2539997 c 0.19799995 0 0.29700005 -0.1539998 0.29700005 -0.4619999 c 0 -0.14299989 -0.055000067 -0.43999982 -0.176 -0.8909998 l -0.62700003 -2.497 c -0.04399997 -0.13200003 -0.09899998 -0.418 -0.09899998 -0.48400003 c 0 -0.22 0.12099999 -0.32999998 0.35199994 -0.32999998 c 0.22000003 0 0.37400007 0.11 0.45099998 0.32999998 c 0.011000037 0.055000007 0.08800006 0.32999998 0.20900011 0.803 l 0.23099995 0.979 l 0.32999992 1.254 c 0.12100005 0.25300002 0.3080001 0.50600004 0.5500002 0.77 c 0.31899977 0.35200024 0.7149999 0.5279999 1.1879997 0.5279999 c 0.36299992 0 0.53900003 -0.24199963 0.53900003 -0.7149997 c 0 -0.14300013 -0.05499983 -0.44000006 -0.16499996 -0.89100003 l -0.29699993 -1.2540001 c -0.07700014 -0.319 -0.25299978 -0.979 -0.34100008 -1.331 c -0.010999918 -0.07699999 -0.021999836 -0.12099999 -0.021999836 -0.143 c 0 -0.22 0.12099981 -0.32999998 0.36299992 -0.32999998 c 0.12099981 0 0.20900011 0.033 0.28599977 0.11 c 0.16500044 0.16499999 0.17600012 0.24200001 0.2420001 0.539 l 0.64900017 2.6069999 c 0.032999992 0.14299989 0.1869998 0.3959999 0.45099974 0.7479999 c 0.3300004 0.44000006 0.77 0.65999985 1.309 0.65999985 c 0.3630004 0 0.53900003 -0.24199963 0.53900003 -0.7149997 c 0 -0.42900014 -0.21999979 -1.2320001 -0.671 -2.409 c -0.09899998 -0.25300002 -0.14299965 -0.462 -0.14299965 -0.605 c 0 -0.53900003 0.4069996 -0.935 0.93499994 -0.935 c 0.4949999 0 0.8689995 0.275 1.144 0.825 c 0.22000027 0.44000006 0.32999992 0.737 0.32999992 0.88 c 0 0.09899998 -0.055000305 0.15400004 -0.17599964 0.15400004 c -0.07700062 -0.011000037 -0.15400028 -0.110000014 -0.20900059 -0.23100007 c -0.24199963 -0.86899996 -0.59399986 -1.309 -1.0669999 -1.309 c -0.14300013 0 -0.21999979 0.11 -0.21999979 0.319 c 0 0.16499996 0.065999985 0.407 0.19799995 0.74799997 c 0.4510002 1.1769999 0.6709995 1.9799999 0.6709995 2.3979998 c 0 0.7809999 -0.51699924 1.1990001 -1.2979999 1.1990001 Z "/>
+        </symbol>
+        <symbol id="gEACA84B96F3FC9BE6C3E912B349A7BE0" overflow="visible">
+            <path d="M 0 0m 3.608 3.575 c 0 -0.2750001 0.14299989 -0.41799998 0.43999982 -0.41799998 c 0.3959999 0 0.64900017 0.34099984 0.64900017 0.737 c 0 0.6159997 -0.64900017 0.96799994 -1.309 0.96799994 c -0.75900006 0 -1.452 -0.32999992 -2.046 -0.9790001 c -0.594 -0.6489999 -0.89100003 -1.3639998 -0.89100003 -2.1339998 c 0 -1.078 0.71500003 -1.87 1.793 -1.87 c 0.58299994 0 1.0999999 0.143 1.5510001 0.41799998 c 0.37400007 0.231 0.6489997 0.462 0.8249998 0.693 c 0.07700014 0.09899998 0.11000013 0.176 0.11000013 0.20899999 c 0 0.12099993 -0.05499983 0.18700004 -0.17600012 0.18700004 c -0.05499983 0 -0.11000013 -0.04400003 -0.17600012 -0.13200009 c -0.36299992 -0.48399997 -0.8139999 -0.79199994 -1.3309999 -0.92399997 c -0.34099984 -0.087999985 -0.59399986 -0.13199998 -0.7809999 -0.13199998 c -0.6270001 0 -0.93500006 0.385 -0.93500006 1.144 c 0 0.6819999 0.319 1.6719999 0.58300006 2.145 c 0.26399994 0.48399997 0.82500005 1.0559998 1.474 1.0559998 c 0.41799998 0 0.704 -0.12099981 0.8579998 -0.35199976 c -0.34099984 -0.032999992 -0.6379998 -0.25300002 -0.6379998 -0.61599994 Z "/>
+        </symbol>
+        <symbol id="g35089A96F4517D19458AAA3BAF36FB65" overflow="visible">
+            <path d="M 0 0m 0.9163 3.2648 c 0.24639994 0 0.43119997 0.18479991 0.43119997 0.43120003 c 0 0.27719998 -0.14629996 0.42350006 -0.43119997 0.43120003 c 0.16940004 0.36189985 0.5544 0.6545 1.0548999 0.6545 c 0.6775999 0 1.1242001 -0.50820017 1.1242001 -1.1858001 c 0 -0.36960006 -0.13090014 -0.7238002 -0.40040016 -1.0703001 c -0.1308999 -0.17709994 -0.23099995 -0.30029988 -0.30029988 -0.36960006 l -1.8249 -1.8094999 c -0.10010001 -0.092400014 -0.08470002 -0.1155 -0.08470002 -0.3465 h 3.1724 l 0.23869991 1.4476 h -0.32340002 c -0.053900003 -0.4081 -0.11549997 -0.64680004 -0.18479991 -0.7007 c -0.03850007 -0.023100019 -0.27719998 -0.03850001 -0.7314999 -0.03850001 h -1.3090001 c 0.5159 0.45429993 0.9933001 0.86239994 1.4476 1.2243 c 0.34649992 0.2694999 0.59290004 0.50820005 0.7469001 0.71609986 c 0.23099995 0.30030012 0.34649992 0.6160002 0.34649992 0.94710016 c 0 0.47739983 -0.18479991 0.8547001 -0.56209993 1.1318998 c -0.3311 0.25409985 -0.7469001 0.38500023 -1.2397001 0.38500023 c -0.42349994 0 -0.7853999 -0.12319994 -1.1011 -0.3696003 c -0.3311 -0.26949978 -0.50049996 -0.60829973 -0.50049996 -1.0240998 c 0 -0.26180005 0.19250003 -0.45429993 0.4312 -0.45429993 Z "/>
+        </symbol>
+    </defs>
+</svg><span class="sr-only">$E=m c^2$</span></span> is a typst test</p>
+<div class="typst-math"><svg class="typst-doc" viewBox="0 0 43.074411111111104 9.226799999999999" width="43.074411111111104pt" height="9.226799999999999pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:h5="http://www.w3.org/1999/xhtml">
+    <g>
+        <g class="typst-text" transform="matrix(1 0 0 -1 0 9.1058)">
+            <use xlink:href="#g61D1BC14AD38C247B46D453BB1D029CE" x="0" y="0" fill="var(--md-typeset-color)" fill-rule="nonzero"/>
+        </g>
+        <g class="typst-text" transform="matrix(1 0 0 -1 11.767555555555557 9.1058)">
+            <use xlink:href="#g8E79D971ED2DF2360F7CF2540389221" x="0" y="0" fill="var(--md-typeset-color)" fill-rule="nonzero"/>
+        </g>
+        <g class="typst-text" transform="matrix(1 0 0 -1 23.381111111111114 9.1058)">
+            <use xlink:href="#gC543A0DD24FC38E4C01961C2731D9DD4" x="0" y="0" fill="var(--md-typeset-color)" fill-rule="nonzero"/>
+        </g>
+        <g class="typst-text" transform="matrix(1 0 0 -1 33.03911111111111 9.1058)">
+            <use xlink:href="#gEACA84B96F3FC9BE6C3E912B349A7BE0" x="0" y="0" fill="var(--md-typeset-color)" fill-rule="nonzero"/>
+        </g>
+        <g class="typst-text" transform="matrix(1 0 0 -1 38.07711111111111 5.1128)">
+            <use xlink:href="#g35089A96F4517D19458AAA3BAF36FB65" x="0" y="0" fill="var(--md-typeset-color)" fill-rule="nonzero"/>
+        </g>
+    </g>
+    <defs id="glyph">
+        <symbol id="g61D1BC14AD38C247B46D453BB1D029CE" overflow="visible">
+            <path d="M 0 0m 2.189 7.216 c 0 -0.11000013 0.12100005 -0.16499996 0.352 -0.16499996 c 0.44000006 0 0.6600001 -0.04400015 0.6600001 -0.14300013 c 0 -0.032999992 -0.022000074 -0.11000013 -0.055000067 -0.25300026 l -1.43 -5.753 c -0.054999948 -0.24200004 -0.16499996 -0.385 -0.32999992 -0.44 c -0.07700002 -0.022000015 -0.2750001 -0.033000022 -0.61600006 -0.033000022 c -0.24199998 0 -0.352 -0.021999985 -0.352 -0.253 c 0 -0.121 0.12099999 -0.176 0.352 -0.176 h 5.643 c 0.26399994 0 0.28599977 0.022 0.37400007 0.20899999 l 0.43999958 0.99 c 0.2970004 0.68200004 0.50600004 1.1880001 0.62700033 1.5289999 c -0.022000313 0.09899998 -0.055000305 0.16499996 -0.17600012 0.16499996 c -0.07700014 0 -0.14300013 -0.05499983 -0.1869998 -0.1539998 c -0.2750001 -0.64900017 -0.53900003 -1.144 -0.80300045 -1.496 c -0.43999958 -0.59400004 -1.0889997 -0.814 -2.1229997 -0.814 h -1.595 c -0.11000013 0 -0.18700004 0 -0.23099995 0.011000007 c -0.065999985 0 -0.099000216 0.022000015 -0.099000216 0.055000007 c 0 0.022000015 0.022000074 0.09899998 0.055000067 0.24199998 l 0.7260001 2.937 h 1.0450001 c 0.5169997 0 0.7919998 -0.065999985 0.8470001 -0.20900011 c 0.021999836 -0.05499983 0.032999992 -0.13199997 0.032999992 -0.24199986 c 0 -0.14300013 -0.022000313 -0.319 -0.07700014 -0.5280001 c -0.022000313 -0.055000067 -0.032999992 -0.09899998 -0.032999992 -0.13199997 c 0 -0.109999895 0.065999985 -0.16499996 0.1869998 -0.16499996 c 0.09899998 0 0.16499996 0.08800006 0.20900011 0.25300002 l 0.6160002 2.552 c 0 0.11000013 -0.055000305 0.16499996 -0.17600012 0.16499996 c -0.08799982 0 -0.15400028 -0.07700014 -0.18700027 -0.23099995 c -0.10999966 -0.4289999 -0.25299978 -0.704 -0.43999958 -0.83599997 c -0.18700027 -0.13199997 -0.49500036 -0.19799995 -0.9460001 -0.19799995 h -0.9680002 l 0.63800025 2.5629997 c 0.08799982 0.37400007 0.08799982 0.38500023 0.5499997 0.38500023 h 1.5290003 c 0.5609999 0 0.9459996 -0.055000305 1.1549997 -0.16499996 c 0.3080001 -0.16499996 0.4619999 -0.49500036 0.4619999 -0.99000025 c 0 -0.1869998 -0.01099968 -0.38499975 -0.043999672 -0.572 c 0 -0.021999836 0 -0.05499983 -0.011000156 -0.09899998 v -0.09899998 c 0 -0.12099981 0.05499983 -0.17600012 0.16499996 -0.17600012 c 0.11000013 0 0.17600012 0.09899998 0.19800043 0.3080001 l 0.21999931 1.881 c 0.032999992 0.3080001 -0.043999672 0.34100008 -0.3409996 0.34100008 h -5.4890003 c -0.25300002 0 -0.37400007 -0.011000156 -0.37400007 -0.26399994 Z "/>
+        </symbol>
+        <symbol id="g8E79D971ED2DF2360F7CF2540389221" overflow="visible">
+            <path d="M 0 0m 7.678 4.037 h -6.798 c -0.176 0 -0.264 -0.0880003 -0.264 -0.25300026 c 0 -0.16499996 0.088 -0.25300002 0.264 -0.25300002 h 6.798 c 0.17600012 0 0.26399994 0.08800006 0.26399994 0.25300002 c 0 0.13199997 -0.12099981 0.25300026 -0.26399994 0.25300026 Z m 0 -2.0680003 h -6.798 c -0.176 0 -0.264 -0.08799994 -0.264 -0.25300002 c 0 -0.16499996 0.088 -0.25300002 0.264 -0.25300002 h 6.798 c 0.17600012 0 0.26399994 0.08800006 0.26399994 0.25300002 c 0 0.143 -0.12099981 0.25300002 -0.26399994 0.25300002 Z "/>
+        </symbol>
+        <symbol id="gC543A0DD24FC38E4C01961C2731D9DD4" overflow="visible">
+            <path d="M 0 0m 7.2269998 4.862 c -0.671 0 -1.2539997 -0.32999992 -1.7489996 -0.9790001 c -0.09899998 0.64900017 -0.5170002 0.9790001 -1.2650003 0.9790001 c -0.6489999 0 -1.2099998 -0.28599977 -1.6719999 -0.86899996 c -0.08799982 0.48399973 -0.4729998 0.86899996 -1.0339999 0.86899996 c -0.45099998 0 -0.78099996 -0.36299992 -1.012 -1.0780001 c -0.12099999 -0.352 -0.176 -0.5609999 -0.176 -0.62699986 c 0 -0.09899998 0.055000007 -0.15400004 0.176 -0.15400004 c 0.055000007 0 0.088 0.010999918 0.12099999 0.032999992 c 0.055000007 0.09899998 0.088 0.17599988 0.110000014 0.25300002 c 0.19800001 0.83599997 0.45100003 1.2539997 0.74799997 1.2539997 c 0.19799995 0 0.29700005 -0.1539998 0.29700005 -0.4619999 c 0 -0.14299989 -0.055000067 -0.43999982 -0.176 -0.8909998 l -0.62700003 -2.497 c -0.04399997 -0.13200003 -0.09899998 -0.418 -0.09899998 -0.48400003 c 0 -0.22 0.12099999 -0.32999998 0.35199994 -0.32999998 c 0.22000003 0 0.37400007 0.11 0.45099998 0.32999998 c 0.011000037 0.055000007 0.08800006 0.32999998 0.20900011 0.803 l 0.23099995 0.979 l 0.32999992 1.254 c 0.12100005 0.25300002 0.3080001 0.50600004 0.5500002 0.77 c 0.31899977 0.35200024 0.7149999 0.5279999 1.1879997 0.5279999 c 0.36299992 0 0.53900003 -0.24199963 0.53900003 -0.7149997 c 0 -0.14300013 -0.05499983 -0.44000006 -0.16499996 -0.89100003 l -0.29699993 -1.2540001 c -0.07700014 -0.319 -0.25299978 -0.979 -0.34100008 -1.331 c -0.010999918 -0.07699999 -0.021999836 -0.12099999 -0.021999836 -0.143 c 0 -0.22 0.12099981 -0.32999998 0.36299992 -0.32999998 c 0.12099981 0 0.20900011 0.033 0.28599977 0.11 c 0.16500044 0.16499999 0.17600012 0.24200001 0.2420001 0.539 l 0.64900017 2.6069999 c 0.032999992 0.14299989 0.1869998 0.3959999 0.45099974 0.7479999 c 0.3300004 0.44000006 0.77 0.65999985 1.309 0.65999985 c 0.3630004 0 0.53900003 -0.24199963 0.53900003 -0.7149997 c 0 -0.42900014 -0.21999979 -1.2320001 -0.671 -2.409 c -0.09899998 -0.25300002 -0.14299965 -0.462 -0.14299965 -0.605 c 0 -0.53900003 0.4069996 -0.935 0.93499994 -0.935 c 0.4949999 0 0.8689995 0.275 1.144 0.825 c 0.22000027 0.44000006 0.32999992 0.737 0.32999992 0.88 c 0 0.09899998 -0.055000305 0.15400004 -0.17599964 0.15400004 c -0.07700062 -0.011000037 -0.15400028 -0.110000014 -0.20900059 -0.23100007 c -0.24199963 -0.86899996 -0.59399986 -1.309 -1.0669999 -1.309 c -0.14300013 0 -0.21999979 0.11 -0.21999979 0.319 c 0 0.16499996 0.065999985 0.407 0.19799995 0.74799997 c 0.4510002 1.1769999 0.6709995 1.9799999 0.6709995 2.3979998 c 0 0.7809999 -0.51699924 1.1990001 -1.2979999 1.1990001 Z "/>
+        </symbol>
+        <symbol id="gEACA84B96F3FC9BE6C3E912B349A7BE0" overflow="visible">
+            <path d="M 0 0m 3.608 3.575 c 0 -0.2750001 0.14299989 -0.41799998 0.43999982 -0.41799998 c 0.3959999 0 0.64900017 0.34099984 0.64900017 0.737 c 0 0.6159997 -0.64900017 0.96799994 -1.309 0.96799994 c -0.75900006 0 -1.452 -0.32999992 -2.046 -0.9790001 c -0.594 -0.6489999 -0.89100003 -1.3639998 -0.89100003 -2.1339998 c 0 -1.078 0.71500003 -1.87 1.793 -1.87 c 0.58299994 0 1.0999999 0.143 1.5510001 0.41799998 c 0.37400007 0.231 0.6489997 0.462 0.8249998 0.693 c 0.07700014 0.09899998 0.11000013 0.176 0.11000013 0.20899999 c 0 0.12099993 -0.05499983 0.18700004 -0.17600012 0.18700004 c -0.05499983 0 -0.11000013 -0.04400003 -0.17600012 -0.13200009 c -0.36299992 -0.48399997 -0.8139999 -0.79199994 -1.3309999 -0.92399997 c -0.34099984 -0.087999985 -0.59399986 -0.13199998 -0.7809999 -0.13199998 c -0.6270001 0 -0.93500006 0.385 -0.93500006 1.144 c 0 0.6819999 0.319 1.6719999 0.58300006 2.145 c 0.26399994 0.48399997 0.82500005 1.0559998 1.474 1.0559998 c 0.41799998 0 0.704 -0.12099981 0.8579998 -0.35199976 c -0.34099984 -0.032999992 -0.6379998 -0.25300002 -0.6379998 -0.61599994 Z "/>
+        </symbol>
+        <symbol id="g35089A96F4517D19458AAA3BAF36FB65" overflow="visible">
+            <path d="M 0 0m 0.9163 3.2648 c 0.24639994 0 0.43119997 0.18479991 0.43119997 0.43120003 c 0 0.27719998 -0.14629996 0.42350006 -0.43119997 0.43120003 c 0.16940004 0.36189985 0.5544 0.6545 1.0548999 0.6545 c 0.6775999 0 1.1242001 -0.50820017 1.1242001 -1.1858001 c 0 -0.36960006 -0.13090014 -0.7238002 -0.40040016 -1.0703001 c -0.1308999 -0.17709994 -0.23099995 -0.30029988 -0.30029988 -0.36960006 l -1.8249 -1.8094999 c -0.10010001 -0.092400014 -0.08470002 -0.1155 -0.08470002 -0.3465 h 3.1724 l 0.23869991 1.4476 h -0.32340002 c -0.053900003 -0.4081 -0.11549997 -0.64680004 -0.18479991 -0.7007 c -0.03850007 -0.023100019 -0.27719998 -0.03850001 -0.7314999 -0.03850001 h -1.3090001 c 0.5159 0.45429993 0.9933001 0.86239994 1.4476 1.2243 c 0.34649992 0.2694999 0.59290004 0.50820005 0.7469001 0.71609986 c 0.23099995 0.30030012 0.34649992 0.6160002 0.34649992 0.94710016 c 0 0.47739983 -0.18479991 0.8547001 -0.56209993 1.1318998 c -0.3311 0.25409985 -0.7469001 0.38500023 -1.2397001 0.38500023 c -0.42349994 0 -0.7853999 -0.12319994 -1.1011 -0.3696003 c -0.3311 -0.26949978 -0.50049996 -0.60829973 -0.50049996 -1.0240998 c 0 -0.26180005 0.19250003 -0.45429993 0.4312 -0.45429993 Z "/>
+        </symbol>
+    </defs>
+</svg><span class="sr-only">$ E=m c^2 $</span></div>
+<div class="typst-math"><svg class="typst-doc" viewBox="0 0 43.074411111111104 9.226799999999999" width="43.074411111111104pt" height="9.226799999999999pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:h5="http://www.w3.org/1999/xhtml">
+    <g>
+        <g class="typst-text" transform="matrix(1 0 0 -1 0 9.1058)">
+            <use xlink:href="#g61D1BC14AD38C247B46D453BB1D029CE" x="0" y="0" fill="var(--md-typeset-color)" fill-rule="nonzero"/>
+        </g>
+        <g class="typst-text" transform="matrix(1 0 0 -1 11.767555555555557 9.1058)">
+            <use xlink:href="#g8E79D971ED2DF2360F7CF2540389221" x="0" y="0" fill="var(--md-typeset-color)" fill-rule="nonzero"/>
+        </g>
+        <g class="typst-text" transform="matrix(1 0 0 -1 23.381111111111114 9.1058)">
+            <use xlink:href="#gC543A0DD24FC38E4C01961C2731D9DD4" x="0" y="0" fill="var(--md-typeset-color)" fill-rule="nonzero"/>
+        </g>
+        <g class="typst-text" transform="matrix(1 0 0 -1 33.03911111111111 9.1058)">
+            <use xlink:href="#gEACA84B96F3FC9BE6C3E912B349A7BE0" x="0" y="0" fill="var(--md-typeset-color)" fill-rule="nonzero"/>
+        </g>
+        <g class="typst-text" transform="matrix(1 0 0 -1 38.07711111111111 5.1128)">
+            <use xlink:href="#g35089A96F4517D19458AAA3BAF36FB65" x="0" y="0" fill="var(--md-typeset-color)" fill-rule="nonzero"/>
+        </g>
+    </g>
+    <defs id="glyph">
+        <symbol id="g61D1BC14AD38C247B46D453BB1D029CE" overflow="visible">
+            <path d="M 0 0m 2.189 7.216 c 0 -0.11000013 0.12100005 -0.16499996 0.352 -0.16499996 c 0.44000006 0 0.6600001 -0.04400015 0.6600001 -0.14300013 c 0 -0.032999992 -0.022000074 -0.11000013 -0.055000067 -0.25300026 l -1.43 -5.753 c -0.054999948 -0.24200004 -0.16499996 -0.385 -0.32999992 -0.44 c -0.07700002 -0.022000015 -0.2750001 -0.033000022 -0.61600006 -0.033000022 c -0.24199998 0 -0.352 -0.021999985 -0.352 -0.253 c 0 -0.121 0.12099999 -0.176 0.352 -0.176 h 5.643 c 0.26399994 0 0.28599977 0.022 0.37400007 0.20899999 l 0.43999958 0.99 c 0.2970004 0.68200004 0.50600004 1.1880001 0.62700033 1.5289999 c -0.022000313 0.09899998 -0.055000305 0.16499996 -0.17600012 0.16499996 c -0.07700014 0 -0.14300013 -0.05499983 -0.1869998 -0.1539998 c -0.2750001 -0.64900017 -0.53900003 -1.144 -0.80300045 -1.496 c -0.43999958 -0.59400004 -1.0889997 -0.814 -2.1229997 -0.814 h -1.595 c -0.11000013 0 -0.18700004 0 -0.23099995 0.011000007 c -0.065999985 0 -0.099000216 0.022000015 -0.099000216 0.055000007 c 0 0.022000015 0.022000074 0.09899998 0.055000067 0.24199998 l 0.7260001 2.937 h 1.0450001 c 0.5169997 0 0.7919998 -0.065999985 0.8470001 -0.20900011 c 0.021999836 -0.05499983 0.032999992 -0.13199997 0.032999992 -0.24199986 c 0 -0.14300013 -0.022000313 -0.319 -0.07700014 -0.5280001 c -0.022000313 -0.055000067 -0.032999992 -0.09899998 -0.032999992 -0.13199997 c 0 -0.109999895 0.065999985 -0.16499996 0.1869998 -0.16499996 c 0.09899998 0 0.16499996 0.08800006 0.20900011 0.25300002 l 0.6160002 2.552 c 0 0.11000013 -0.055000305 0.16499996 -0.17600012 0.16499996 c -0.08799982 0 -0.15400028 -0.07700014 -0.18700027 -0.23099995 c -0.10999966 -0.4289999 -0.25299978 -0.704 -0.43999958 -0.83599997 c -0.18700027 -0.13199997 -0.49500036 -0.19799995 -0.9460001 -0.19799995 h -0.9680002 l 0.63800025 2.5629997 c 0.08799982 0.37400007 0.08799982 0.38500023 0.5499997 0.38500023 h 1.5290003 c 0.5609999 0 0.9459996 -0.055000305 1.1549997 -0.16499996 c 0.3080001 -0.16499996 0.4619999 -0.49500036 0.4619999 -0.99000025 c 0 -0.1869998 -0.01099968 -0.38499975 -0.043999672 -0.572 c 0 -0.021999836 0 -0.05499983 -0.011000156 -0.09899998 v -0.09899998 c 0 -0.12099981 0.05499983 -0.17600012 0.16499996 -0.17600012 c 0.11000013 0 0.17600012 0.09899998 0.19800043 0.3080001 l 0.21999931 1.881 c 0.032999992 0.3080001 -0.043999672 0.34100008 -0.3409996 0.34100008 h -5.4890003 c -0.25300002 0 -0.37400007 -0.011000156 -0.37400007 -0.26399994 Z "/>
+        </symbol>
+        <symbol id="g8E79D971ED2DF2360F7CF2540389221" overflow="visible">
+            <path d="M 0 0m 7.678 4.037 h -6.798 c -0.176 0 -0.264 -0.0880003 -0.264 -0.25300026 c 0 -0.16499996 0.088 -0.25300002 0.264 -0.25300002 h 6.798 c 0.17600012 0 0.26399994 0.08800006 0.26399994 0.25300002 c 0 0.13199997 -0.12099981 0.25300026 -0.26399994 0.25300026 Z m 0 -2.0680003 h -6.798 c -0.176 0 -0.264 -0.08799994 -0.264 -0.25300002 c 0 -0.16499996 0.088 -0.25300002 0.264 -0.25300002 h 6.798 c 0.17600012 0 0.26399994 0.08800006 0.26399994 0.25300002 c 0 0.143 -0.12099981 0.25300002 -0.26399994 0.25300002 Z "/>
+        </symbol>
+        <symbol id="gC543A0DD24FC38E4C01961C2731D9DD4" overflow="visible">
+            <path d="M 0 0m 7.2269998 4.862 c -0.671 0 -1.2539997 -0.32999992 -1.7489996 -0.9790001 c -0.09899998 0.64900017 -0.5170002 0.9790001 -1.2650003 0.9790001 c -0.6489999 0 -1.2099998 -0.28599977 -1.6719999 -0.86899996 c -0.08799982 0.48399973 -0.4729998 0.86899996 -1.0339999 0.86899996 c -0.45099998 0 -0.78099996 -0.36299992 -1.012 -1.0780001 c -0.12099999 -0.352 -0.176 -0.5609999 -0.176 -0.62699986 c 0 -0.09899998 0.055000007 -0.15400004 0.176 -0.15400004 c 0.055000007 0 0.088 0.010999918 0.12099999 0.032999992 c 0.055000007 0.09899998 0.088 0.17599988 0.110000014 0.25300002 c 0.19800001 0.83599997 0.45100003 1.2539997 0.74799997 1.2539997 c 0.19799995 0 0.29700005 -0.1539998 0.29700005 -0.4619999 c 0 -0.14299989 -0.055000067 -0.43999982 -0.176 -0.8909998 l -0.62700003 -2.497 c -0.04399997 -0.13200003 -0.09899998 -0.418 -0.09899998 -0.48400003 c 0 -0.22 0.12099999 -0.32999998 0.35199994 -0.32999998 c 0.22000003 0 0.37400007 0.11 0.45099998 0.32999998 c 0.011000037 0.055000007 0.08800006 0.32999998 0.20900011 0.803 l 0.23099995 0.979 l 0.32999992 1.254 c 0.12100005 0.25300002 0.3080001 0.50600004 0.5500002 0.77 c 0.31899977 0.35200024 0.7149999 0.5279999 1.1879997 0.5279999 c 0.36299992 0 0.53900003 -0.24199963 0.53900003 -0.7149997 c 0 -0.14300013 -0.05499983 -0.44000006 -0.16499996 -0.89100003 l -0.29699993 -1.2540001 c -0.07700014 -0.319 -0.25299978 -0.979 -0.34100008 -1.331 c -0.010999918 -0.07699999 -0.021999836 -0.12099999 -0.021999836 -0.143 c 0 -0.22 0.12099981 -0.32999998 0.36299992 -0.32999998 c 0.12099981 0 0.20900011 0.033 0.28599977 0.11 c 0.16500044 0.16499999 0.17600012 0.24200001 0.2420001 0.539 l 0.64900017 2.6069999 c 0.032999992 0.14299989 0.1869998 0.3959999 0.45099974 0.7479999 c 0.3300004 0.44000006 0.77 0.65999985 1.309 0.65999985 c 0.3630004 0 0.53900003 -0.24199963 0.53900003 -0.7149997 c 0 -0.42900014 -0.21999979 -1.2320001 -0.671 -2.409 c -0.09899998 -0.25300002 -0.14299965 -0.462 -0.14299965 -0.605 c 0 -0.53900003 0.4069996 -0.935 0.93499994 -0.935 c 0.4949999 0 0.8689995 0.275 1.144 0.825 c 0.22000027 0.44000006 0.32999992 0.737 0.32999992 0.88 c 0 0.09899998 -0.055000305 0.15400004 -0.17599964 0.15400004 c -0.07700062 -0.011000037 -0.15400028 -0.110000014 -0.20900059 -0.23100007 c -0.24199963 -0.86899996 -0.59399986 -1.309 -1.0669999 -1.309 c -0.14300013 0 -0.21999979 0.11 -0.21999979 0.319 c 0 0.16499996 0.065999985 0.407 0.19799995 0.74799997 c 0.4510002 1.1769999 0.6709995 1.9799999 0.6709995 2.3979998 c 0 0.7809999 -0.51699924 1.1990001 -1.2979999 1.1990001 Z "/>
+        </symbol>
+        <symbol id="gEACA84B96F3FC9BE6C3E912B349A7BE0" overflow="visible">
+            <path d="M 0 0m 3.608 3.575 c 0 -0.2750001 0.14299989 -0.41799998 0.43999982 -0.41799998 c 0.3959999 0 0.64900017 0.34099984 0.64900017 0.737 c 0 0.6159997 -0.64900017 0.96799994 -1.309 0.96799994 c -0.75900006 0 -1.452 -0.32999992 -2.046 -0.9790001 c -0.594 -0.6489999 -0.89100003 -1.3639998 -0.89100003 -2.1339998 c 0 -1.078 0.71500003 -1.87 1.793 -1.87 c 0.58299994 0 1.0999999 0.143 1.5510001 0.41799998 c 0.37400007 0.231 0.6489997 0.462 0.8249998 0.693 c 0.07700014 0.09899998 0.11000013 0.176 0.11000013 0.20899999 c 0 0.12099993 -0.05499983 0.18700004 -0.17600012 0.18700004 c -0.05499983 0 -0.11000013 -0.04400003 -0.17600012 -0.13200009 c -0.36299992 -0.48399997 -0.8139999 -0.79199994 -1.3309999 -0.92399997 c -0.34099984 -0.087999985 -0.59399986 -0.13199998 -0.7809999 -0.13199998 c -0.6270001 0 -0.93500006 0.385 -0.93500006 1.144 c 0 0.6819999 0.319 1.6719999 0.58300006 2.145 c 0.26399994 0.48399997 0.82500005 1.0559998 1.474 1.0559998 c 0.41799998 0 0.704 -0.12099981 0.8579998 -0.35199976 c -0.34099984 -0.032999992 -0.6379998 -0.25300002 -0.6379998 -0.61599994 Z "/>
+        </symbol>
+        <symbol id="g35089A96F4517D19458AAA3BAF36FB65" overflow="visible">
+            <path d="M 0 0m 0.9163 3.2648 c 0.24639994 0 0.43119997 0.18479991 0.43119997 0.43120003 c 0 0.27719998 -0.14629996 0.42350006 -0.43119997 0.43120003 c 0.16940004 0.36189985 0.5544 0.6545 1.0548999 0.6545 c 0.6775999 0 1.1242001 -0.50820017 1.1242001 -1.1858001 c 0 -0.36960006 -0.13090014 -0.7238002 -0.40040016 -1.0703001 c -0.1308999 -0.17709994 -0.23099995 -0.30029988 -0.30029988 -0.36960006 l -1.8249 -1.8094999 c -0.10010001 -0.092400014 -0.08470002 -0.1155 -0.08470002 -0.3465 h 3.1724 l 0.23869991 1.4476 h -0.32340002 c -0.053900003 -0.4081 -0.11549997 -0.64680004 -0.18479991 -0.7007 c -0.03850007 -0.023100019 -0.27719998 -0.03850001 -0.7314999 -0.03850001 h -1.3090001 c 0.5159 0.45429993 0.9933001 0.86239994 1.4476 1.2243 c 0.34649992 0.2694999 0.59290004 0.50820005 0.7469001 0.71609986 c 0.23099995 0.30030012 0.34649992 0.6160002 0.34649992 0.94710016 c 0 0.47739983 -0.18479991 0.8547001 -0.56209993 1.1318998 c -0.3311 0.25409985 -0.7469001 0.38500023 -1.2397001 0.38500023 c -0.42349994 0 -0.7853999 -0.12319994 -1.1011 -0.3696003 c -0.3311 -0.26949978 -0.50049996 -0.60829973 -0.50049996 -1.0240998 c 0 -0.26180005 0.19250003 -0.45429993 0.4312 -0.45429993 Z "/>
+        </symbol>
+    </defs>
+</svg><span class="sr-only">$ E=m c^2 $</span></div>
+<p>or <span class="typst-math"><svg class="typst-doc" viewBox="0 0 43.07441111111111 7.513000000000001" width="43.07441111111111pt" height="7.513000000000001pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:h5="http://www.w3.org/1999/xhtml">
+    <g>
+        <g class="typst-group">
+            <g>
+                <g class="typst-text" transform="matrix(1 0 0 -1 0 7.513000000000001)">
+                    <use xlink:href="#g61D1BC14AD38C247B46D453BB1D029CE" x="0" y="0" fill="var(--md-typeset-color)" fill-rule="nonzero"/>
+                </g>
+                <g class="typst-text" transform="matrix(1 0 0 -1 11.767555555555557 7.513000000000001)">
+                    <use xlink:href="#g8E79D971ED2DF2360F7CF2540389221" x="0" y="0" fill="var(--md-typeset-color)" fill-rule="nonzero"/>
+                </g>
+                <g class="typst-text" transform="matrix(1 0 0 -1 23.381111111111114 7.513000000000001)">
+                    <use xlink:href="#gC543A0DD24FC38E4C01961C2731D9DD4" x="0" y="0" fill="var(--md-typeset-color)" fill-rule="nonzero"/>
+                </g>
+                <g class="typst-text" transform="matrix(1 0 0 -1 33.03911111111111 7.513000000000001)">
+                    <use xlink:href="#gEACA84B96F3FC9BE6C3E912B349A7BE0" x="0" y="0" fill="var(--md-typeset-color)" fill-rule="nonzero"/>
+                </g>
+                <g class="typst-text" transform="matrix(1 0 0 -1 38.07711111111111 3.5200000000000005)">
+                    <use xlink:href="#g35089A96F4517D19458AAA3BAF36FB65" x="0" y="0" fill="var(--md-typeset-color)" fill-rule="nonzero"/>
+                </g>
+            </g>
+        </g>
+    </g>
+    <defs id="glyph">
+        <symbol id="g61D1BC14AD38C247B46D453BB1D029CE" overflow="visible">
+            <path d="M 0 0m 2.189 7.216 c 0 -0.11000013 0.12100005 -0.16499996 0.352 -0.16499996 c 0.44000006 0 0.6600001 -0.04400015 0.6600001 -0.14300013 c 0 -0.032999992 -0.022000074 -0.11000013 -0.055000067 -0.25300026 l -1.43 -5.753 c -0.054999948 -0.24200004 -0.16499996 -0.385 -0.32999992 -0.44 c -0.07700002 -0.022000015 -0.2750001 -0.033000022 -0.61600006 -0.033000022 c -0.24199998 0 -0.352 -0.021999985 -0.352 -0.253 c 0 -0.121 0.12099999 -0.176 0.352 -0.176 h 5.643 c 0.26399994 0 0.28599977 0.022 0.37400007 0.20899999 l 0.43999958 0.99 c 0.2970004 0.68200004 0.50600004 1.1880001 0.62700033 1.5289999 c -0.022000313 0.09899998 -0.055000305 0.16499996 -0.17600012 0.16499996 c -0.07700014 0 -0.14300013 -0.05499983 -0.1869998 -0.1539998 c -0.2750001 -0.64900017 -0.53900003 -1.144 -0.80300045 -1.496 c -0.43999958 -0.59400004 -1.0889997 -0.814 -2.1229997 -0.814 h -1.595 c -0.11000013 0 -0.18700004 0 -0.23099995 0.011000007 c -0.065999985 0 -0.099000216 0.022000015 -0.099000216 0.055000007 c 0 0.022000015 0.022000074 0.09899998 0.055000067 0.24199998 l 0.7260001 2.937 h 1.0450001 c 0.5169997 0 0.7919998 -0.065999985 0.8470001 -0.20900011 c 0.021999836 -0.05499983 0.032999992 -0.13199997 0.032999992 -0.24199986 c 0 -0.14300013 -0.022000313 -0.319 -0.07700014 -0.5280001 c -0.022000313 -0.055000067 -0.032999992 -0.09899998 -0.032999992 -0.13199997 c 0 -0.109999895 0.065999985 -0.16499996 0.1869998 -0.16499996 c 0.09899998 0 0.16499996 0.08800006 0.20900011 0.25300002 l 0.6160002 2.552 c 0 0.11000013 -0.055000305 0.16499996 -0.17600012 0.16499996 c -0.08799982 0 -0.15400028 -0.07700014 -0.18700027 -0.23099995 c -0.10999966 -0.4289999 -0.25299978 -0.704 -0.43999958 -0.83599997 c -0.18700027 -0.13199997 -0.49500036 -0.19799995 -0.9460001 -0.19799995 h -0.9680002 l 0.63800025 2.5629997 c 0.08799982 0.37400007 0.08799982 0.38500023 0.5499997 0.38500023 h 1.5290003 c 0.5609999 0 0.9459996 -0.055000305 1.1549997 -0.16499996 c 0.3080001 -0.16499996 0.4619999 -0.49500036 0.4619999 -0.99000025 c 0 -0.1869998 -0.01099968 -0.38499975 -0.043999672 -0.572 c 0 -0.021999836 0 -0.05499983 -0.011000156 -0.09899998 v -0.09899998 c 0 -0.12099981 0.05499983 -0.17600012 0.16499996 -0.17600012 c 0.11000013 0 0.17600012 0.09899998 0.19800043 0.3080001 l 0.21999931 1.881 c 0.032999992 0.3080001 -0.043999672 0.34100008 -0.3409996 0.34100008 h -5.4890003 c -0.25300002 0 -0.37400007 -0.011000156 -0.37400007 -0.26399994 Z "/>
+        </symbol>
+        <symbol id="g8E79D971ED2DF2360F7CF2540389221" overflow="visible">
+            <path d="M 0 0m 7.678 4.037 h -6.798 c -0.176 0 -0.264 -0.0880003 -0.264 -0.25300026 c 0 -0.16499996 0.088 -0.25300002 0.264 -0.25300002 h 6.798 c 0.17600012 0 0.26399994 0.08800006 0.26399994 0.25300002 c 0 0.13199997 -0.12099981 0.25300026 -0.26399994 0.25300026 Z m 0 -2.0680003 h -6.798 c -0.176 0 -0.264 -0.08799994 -0.264 -0.25300002 c 0 -0.16499996 0.088 -0.25300002 0.264 -0.25300002 h 6.798 c 0.17600012 0 0.26399994 0.08800006 0.26399994 0.25300002 c 0 0.143 -0.12099981 0.25300002 -0.26399994 0.25300002 Z "/>
+        </symbol>
+        <symbol id="gC543A0DD24FC38E4C01961C2731D9DD4" overflow="visible">
+            <path d="M 0 0m 7.2269998 4.862 c -0.671 0 -1.2539997 -0.32999992 -1.7489996 -0.9790001 c -0.09899998 0.64900017 -0.5170002 0.9790001 -1.2650003 0.9790001 c -0.6489999 0 -1.2099998 -0.28599977 -1.6719999 -0.86899996 c -0.08799982 0.48399973 -0.4729998 0.86899996 -1.0339999 0.86899996 c -0.45099998 0 -0.78099996 -0.36299992 -1.012 -1.0780001 c -0.12099999 -0.352 -0.176 -0.5609999 -0.176 -0.62699986 c 0 -0.09899998 0.055000007 -0.15400004 0.176 -0.15400004 c 0.055000007 0 0.088 0.010999918 0.12099999 0.032999992 c 0.055000007 0.09899998 0.088 0.17599988 0.110000014 0.25300002 c 0.19800001 0.83599997 0.45100003 1.2539997 0.74799997 1.2539997 c 0.19799995 0 0.29700005 -0.1539998 0.29700005 -0.4619999 c 0 -0.14299989 -0.055000067 -0.43999982 -0.176 -0.8909998 l -0.62700003 -2.497 c -0.04399997 -0.13200003 -0.09899998 -0.418 -0.09899998 -0.48400003 c 0 -0.22 0.12099999 -0.32999998 0.35199994 -0.32999998 c 0.22000003 0 0.37400007 0.11 0.45099998 0.32999998 c 0.011000037 0.055000007 0.08800006 0.32999998 0.20900011 0.803 l 0.23099995 0.979 l 0.32999992 1.254 c 0.12100005 0.25300002 0.3080001 0.50600004 0.5500002 0.77 c 0.31899977 0.35200024 0.7149999 0.5279999 1.1879997 0.5279999 c 0.36299992 0 0.53900003 -0.24199963 0.53900003 -0.7149997 c 0 -0.14300013 -0.05499983 -0.44000006 -0.16499996 -0.89100003 l -0.29699993 -1.2540001 c -0.07700014 -0.319 -0.25299978 -0.979 -0.34100008 -1.331 c -0.010999918 -0.07699999 -0.021999836 -0.12099999 -0.021999836 -0.143 c 0 -0.22 0.12099981 -0.32999998 0.36299992 -0.32999998 c 0.12099981 0 0.20900011 0.033 0.28599977 0.11 c 0.16500044 0.16499999 0.17600012 0.24200001 0.2420001 0.539 l 0.64900017 2.6069999 c 0.032999992 0.14299989 0.1869998 0.3959999 0.45099974 0.7479999 c 0.3300004 0.44000006 0.77 0.65999985 1.309 0.65999985 c 0.3630004 0 0.53900003 -0.24199963 0.53900003 -0.7149997 c 0 -0.42900014 -0.21999979 -1.2320001 -0.671 -2.409 c -0.09899998 -0.25300002 -0.14299965 -0.462 -0.14299965 -0.605 c 0 -0.53900003 0.4069996 -0.935 0.93499994 -0.935 c 0.4949999 0 0.8689995 0.275 1.144 0.825 c 0.22000027 0.44000006 0.32999992 0.737 0.32999992 0.88 c 0 0.09899998 -0.055000305 0.15400004 -0.17599964 0.15400004 c -0.07700062 -0.011000037 -0.15400028 -0.110000014 -0.20900059 -0.23100007 c -0.24199963 -0.86899996 -0.59399986 -1.309 -1.0669999 -1.309 c -0.14300013 0 -0.21999979 0.11 -0.21999979 0.319 c 0 0.16499996 0.065999985 0.407 0.19799995 0.74799997 c 0.4510002 1.1769999 0.6709995 1.9799999 0.6709995 2.3979998 c 0 0.7809999 -0.51699924 1.1990001 -1.2979999 1.1990001 Z "/>
+        </symbol>
+        <symbol id="gEACA84B96F3FC9BE6C3E912B349A7BE0" overflow="visible">
+            <path d="M 0 0m 3.608 3.575 c 0 -0.2750001 0.14299989 -0.41799998 0.43999982 -0.41799998 c 0.3959999 0 0.64900017 0.34099984 0.64900017 0.737 c 0 0.6159997 -0.64900017 0.96799994 -1.309 0.96799994 c -0.75900006 0 -1.452 -0.32999992 -2.046 -0.9790001 c -0.594 -0.6489999 -0.89100003 -1.3639998 -0.89100003 -2.1339998 c 0 -1.078 0.71500003 -1.87 1.793 -1.87 c 0.58299994 0 1.0999999 0.143 1.5510001 0.41799998 c 0.37400007 0.231 0.6489997 0.462 0.8249998 0.693 c 0.07700014 0.09899998 0.11000013 0.176 0.11000013 0.20899999 c 0 0.12099993 -0.05499983 0.18700004 -0.17600012 0.18700004 c -0.05499983 0 -0.11000013 -0.04400003 -0.17600012 -0.13200009 c -0.36299992 -0.48399997 -0.8139999 -0.79199994 -1.3309999 -0.92399997 c -0.34099984 -0.087999985 -0.59399986 -0.13199998 -0.7809999 -0.13199998 c -0.6270001 0 -0.93500006 0.385 -0.93500006 1.144 c 0 0.6819999 0.319 1.6719999 0.58300006 2.145 c 0.26399994 0.48399997 0.82500005 1.0559998 1.474 1.0559998 c 0.41799998 0 0.704 -0.12099981 0.8579998 -0.35199976 c -0.34099984 -0.032999992 -0.6379998 -0.25300002 -0.6379998 -0.61599994 Z "/>
+        </symbol>
+        <symbol id="g35089A96F4517D19458AAA3BAF36FB65" overflow="visible">
+            <path d="M 0 0m 0.9163 3.2648 c 0.24639994 0 0.43119997 0.18479991 0.43119997 0.43120003 c 0 0.27719998 -0.14629996 0.42350006 -0.43119997 0.43120003 c 0.16940004 0.36189985 0.5544 0.6545 1.0548999 0.6545 c 0.6775999 0 1.1242001 -0.50820017 1.1242001 -1.1858001 c 0 -0.36960006 -0.13090014 -0.7238002 -0.40040016 -1.0703001 c -0.1308999 -0.17709994 -0.23099995 -0.30029988 -0.30029988 -0.36960006 l -1.8249 -1.8094999 c -0.10010001 -0.092400014 -0.08470002 -0.1155 -0.08470002 -0.3465 h 3.1724 l 0.23869991 1.4476 h -0.32340002 c -0.053900003 -0.4081 -0.11549997 -0.64680004 -0.18479991 -0.7007 c -0.03850007 -0.023100019 -0.27719998 -0.03850001 -0.7314999 -0.03850001 h -1.3090001 c 0.5159 0.45429993 0.9933001 0.86239994 1.4476 1.2243 c 0.34649992 0.2694999 0.59290004 0.50820005 0.7469001 0.71609986 c 0.23099995 0.30030012 0.34649992 0.6160002 0.34649992 0.94710016 c 0 0.47739983 -0.18479991 0.8547001 -0.56209993 1.1318998 c -0.3311 0.25409985 -0.7469001 0.38500023 -1.2397001 0.38500023 c -0.42349994 0 -0.7853999 -0.12319994 -1.1011 -0.3696003 c -0.3311 -0.26949978 -0.50049996 -0.60829973 -0.50049996 -1.0240998 c 0 -0.26180005 0.19250003 -0.45429993 0.4312 -0.45429993 Z "/>
+        </symbol>
+    </defs>
+</svg><span class="sr-only">$E=m c^2$</span></span></p>
+<div class="typst-math"><svg class="typst-doc" viewBox="0 0 43.074411111111104 9.226799999999999" width="43.074411111111104pt" height="9.226799999999999pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:h5="http://www.w3.org/1999/xhtml">
+    <g>
+        <g class="typst-text" transform="matrix(1 0 0 -1 0 9.1058)">
+            <use xlink:href="#g61D1BC14AD38C247B46D453BB1D029CE" x="0" y="0" fill="var(--md-typeset-color)" fill-rule="nonzero"/>
+        </g>
+        <g class="typst-text" transform="matrix(1 0 0 -1 11.767555555555557 9.1058)">
+            <use xlink:href="#g8E79D971ED2DF2360F7CF2540389221" x="0" y="0" fill="var(--md-typeset-color)" fill-rule="nonzero"/>
+        </g>
+        <g class="typst-text" transform="matrix(1 0 0 -1 23.381111111111114 9.1058)">
+            <use xlink:href="#gC543A0DD24FC38E4C01961C2731D9DD4" x="0" y="0" fill="var(--md-typeset-color)" fill-rule="nonzero"/>
+        </g>
+        <g class="typst-text" transform="matrix(1 0 0 -1 33.03911111111111 9.1058)">
+            <use xlink:href="#gEACA84B96F3FC9BE6C3E912B349A7BE0" x="0" y="0" fill="var(--md-typeset-color)" fill-rule="nonzero"/>
+        </g>
+        <g class="typst-text" transform="matrix(1 0 0 -1 38.07711111111111 5.1128)">
+            <use xlink:href="#g35089A96F4517D19458AAA3BAF36FB65" x="0" y="0" fill="var(--md-typeset-color)" fill-rule="nonzero"/>
+        </g>
+    </g>
+    <defs id="glyph">
+        <symbol id="g61D1BC14AD38C247B46D453BB1D029CE" overflow="visible">
+            <path d="M 0 0m 2.189 7.216 c 0 -0.11000013 0.12100005 -0.16499996 0.352 -0.16499996 c 0.44000006 0 0.6600001 -0.04400015 0.6600001 -0.14300013 c 0 -0.032999992 -0.022000074 -0.11000013 -0.055000067 -0.25300026 l -1.43 -5.753 c -0.054999948 -0.24200004 -0.16499996 -0.385 -0.32999992 -0.44 c -0.07700002 -0.022000015 -0.2750001 -0.033000022 -0.61600006 -0.033000022 c -0.24199998 0 -0.352 -0.021999985 -0.352 -0.253 c 0 -0.121 0.12099999 -0.176 0.352 -0.176 h 5.643 c 0.26399994 0 0.28599977 0.022 0.37400007 0.20899999 l 0.43999958 0.99 c 0.2970004 0.68200004 0.50600004 1.1880001 0.62700033 1.5289999 c -0.022000313 0.09899998 -0.055000305 0.16499996 -0.17600012 0.16499996 c -0.07700014 0 -0.14300013 -0.05499983 -0.1869998 -0.1539998 c -0.2750001 -0.64900017 -0.53900003 -1.144 -0.80300045 -1.496 c -0.43999958 -0.59400004 -1.0889997 -0.814 -2.1229997 -0.814 h -1.595 c -0.11000013 0 -0.18700004 0 -0.23099995 0.011000007 c -0.065999985 0 -0.099000216 0.022000015 -0.099000216 0.055000007 c 0 0.022000015 0.022000074 0.09899998 0.055000067 0.24199998 l 0.7260001 2.937 h 1.0450001 c 0.5169997 0 0.7919998 -0.065999985 0.8470001 -0.20900011 c 0.021999836 -0.05499983 0.032999992 -0.13199997 0.032999992 -0.24199986 c 0 -0.14300013 -0.022000313 -0.319 -0.07700014 -0.5280001 c -0.022000313 -0.055000067 -0.032999992 -0.09899998 -0.032999992 -0.13199997 c 0 -0.109999895 0.065999985 -0.16499996 0.1869998 -0.16499996 c 0.09899998 0 0.16499996 0.08800006 0.20900011 0.25300002 l 0.6160002 2.552 c 0 0.11000013 -0.055000305 0.16499996 -0.17600012 0.16499996 c -0.08799982 0 -0.15400028 -0.07700014 -0.18700027 -0.23099995 c -0.10999966 -0.4289999 -0.25299978 -0.704 -0.43999958 -0.83599997 c -0.18700027 -0.13199997 -0.49500036 -0.19799995 -0.9460001 -0.19799995 h -0.9680002 l 0.63800025 2.5629997 c 0.08799982 0.37400007 0.08799982 0.38500023 0.5499997 0.38500023 h 1.5290003 c 0.5609999 0 0.9459996 -0.055000305 1.1549997 -0.16499996 c 0.3080001 -0.16499996 0.4619999 -0.49500036 0.4619999 -0.99000025 c 0 -0.1869998 -0.01099968 -0.38499975 -0.043999672 -0.572 c 0 -0.021999836 0 -0.05499983 -0.011000156 -0.09899998 v -0.09899998 c 0 -0.12099981 0.05499983 -0.17600012 0.16499996 -0.17600012 c 0.11000013 0 0.17600012 0.09899998 0.19800043 0.3080001 l 0.21999931 1.881 c 0.032999992 0.3080001 -0.043999672 0.34100008 -0.3409996 0.34100008 h -5.4890003 c -0.25300002 0 -0.37400007 -0.011000156 -0.37400007 -0.26399994 Z "/>
+        </symbol>
+        <symbol id="g8E79D971ED2DF2360F7CF2540389221" overflow="visible">
+            <path d="M 0 0m 7.678 4.037 h -6.798 c -0.176 0 -0.264 -0.0880003 -0.264 -0.25300026 c 0 -0.16499996 0.088 -0.25300002 0.264 -0.25300002 h 6.798 c 0.17600012 0 0.26399994 0.08800006 0.26399994 0.25300002 c 0 0.13199997 -0.12099981 0.25300026 -0.26399994 0.25300026 Z m 0 -2.0680003 h -6.798 c -0.176 0 -0.264 -0.08799994 -0.264 -0.25300002 c 0 -0.16499996 0.088 -0.25300002 0.264 -0.25300002 h 6.798 c 0.17600012 0 0.26399994 0.08800006 0.26399994 0.25300002 c 0 0.143 -0.12099981 0.25300002 -0.26399994 0.25300002 Z "/>
+        </symbol>
+        <symbol id="gC543A0DD24FC38E4C01961C2731D9DD4" overflow="visible">
+            <path d="M 0 0m 7.2269998 4.862 c -0.671 0 -1.2539997 -0.32999992 -1.7489996 -0.9790001 c -0.09899998 0.64900017 -0.5170002 0.9790001 -1.2650003 0.9790001 c -0.6489999 0 -1.2099998 -0.28599977 -1.6719999 -0.86899996 c -0.08799982 0.48399973 -0.4729998 0.86899996 -1.0339999 0.86899996 c -0.45099998 0 -0.78099996 -0.36299992 -1.012 -1.0780001 c -0.12099999 -0.352 -0.176 -0.5609999 -0.176 -0.62699986 c 0 -0.09899998 0.055000007 -0.15400004 0.176 -0.15400004 c 0.055000007 0 0.088 0.010999918 0.12099999 0.032999992 c 0.055000007 0.09899998 0.088 0.17599988 0.110000014 0.25300002 c 0.19800001 0.83599997 0.45100003 1.2539997 0.74799997 1.2539997 c 0.19799995 0 0.29700005 -0.1539998 0.29700005 -0.4619999 c 0 -0.14299989 -0.055000067 -0.43999982 -0.176 -0.8909998 l -0.62700003 -2.497 c -0.04399997 -0.13200003 -0.09899998 -0.418 -0.09899998 -0.48400003 c 0 -0.22 0.12099999 -0.32999998 0.35199994 -0.32999998 c 0.22000003 0 0.37400007 0.11 0.45099998 0.32999998 c 0.011000037 0.055000007 0.08800006 0.32999998 0.20900011 0.803 l 0.23099995 0.979 l 0.32999992 1.254 c 0.12100005 0.25300002 0.3080001 0.50600004 0.5500002 0.77 c 0.31899977 0.35200024 0.7149999 0.5279999 1.1879997 0.5279999 c 0.36299992 0 0.53900003 -0.24199963 0.53900003 -0.7149997 c 0 -0.14300013 -0.05499983 -0.44000006 -0.16499996 -0.89100003 l -0.29699993 -1.2540001 c -0.07700014 -0.319 -0.25299978 -0.979 -0.34100008 -1.331 c -0.010999918 -0.07699999 -0.021999836 -0.12099999 -0.021999836 -0.143 c 0 -0.22 0.12099981 -0.32999998 0.36299992 -0.32999998 c 0.12099981 0 0.20900011 0.033 0.28599977 0.11 c 0.16500044 0.16499999 0.17600012 0.24200001 0.2420001 0.539 l 0.64900017 2.6069999 c 0.032999992 0.14299989 0.1869998 0.3959999 0.45099974 0.7479999 c 0.3300004 0.44000006 0.77 0.65999985 1.309 0.65999985 c 0.3630004 0 0.53900003 -0.24199963 0.53900003 -0.7149997 c 0 -0.42900014 -0.21999979 -1.2320001 -0.671 -2.409 c -0.09899998 -0.25300002 -0.14299965 -0.462 -0.14299965 -0.605 c 0 -0.53900003 0.4069996 -0.935 0.93499994 -0.935 c 0.4949999 0 0.8689995 0.275 1.144 0.825 c 0.22000027 0.44000006 0.32999992 0.737 0.32999992 0.88 c 0 0.09899998 -0.055000305 0.15400004 -0.17599964 0.15400004 c -0.07700062 -0.011000037 -0.15400028 -0.110000014 -0.20900059 -0.23100007 c -0.24199963 -0.86899996 -0.59399986 -1.309 -1.0669999 -1.309 c -0.14300013 0 -0.21999979 0.11 -0.21999979 0.319 c 0 0.16499996 0.065999985 0.407 0.19799995 0.74799997 c 0.4510002 1.1769999 0.6709995 1.9799999 0.6709995 2.3979998 c 0 0.7809999 -0.51699924 1.1990001 -1.2979999 1.1990001 Z "/>
+        </symbol>
+        <symbol id="gEACA84B96F3FC9BE6C3E912B349A7BE0" overflow="visible">
+            <path d="M 0 0m 3.608 3.575 c 0 -0.2750001 0.14299989 -0.41799998 0.43999982 -0.41799998 c 0.3959999 0 0.64900017 0.34099984 0.64900017 0.737 c 0 0.6159997 -0.64900017 0.96799994 -1.309 0.96799994 c -0.75900006 0 -1.452 -0.32999992 -2.046 -0.9790001 c -0.594 -0.6489999 -0.89100003 -1.3639998 -0.89100003 -2.1339998 c 0 -1.078 0.71500003 -1.87 1.793 -1.87 c 0.58299994 0 1.0999999 0.143 1.5510001 0.41799998 c 0.37400007 0.231 0.6489997 0.462 0.8249998 0.693 c 0.07700014 0.09899998 0.11000013 0.176 0.11000013 0.20899999 c 0 0.12099993 -0.05499983 0.18700004 -0.17600012 0.18700004 c -0.05499983 0 -0.11000013 -0.04400003 -0.17600012 -0.13200009 c -0.36299992 -0.48399997 -0.8139999 -0.79199994 -1.3309999 -0.92399997 c -0.34099984 -0.087999985 -0.59399986 -0.13199998 -0.7809999 -0.13199998 c -0.6270001 0 -0.93500006 0.385 -0.93500006 1.144 c 0 0.6819999 0.319 1.6719999 0.58300006 2.145 c 0.26399994 0.48399997 0.82500005 1.0559998 1.474 1.0559998 c 0.41799998 0 0.704 -0.12099981 0.8579998 -0.35199976 c -0.34099984 -0.032999992 -0.6379998 -0.25300002 -0.6379998 -0.61599994 Z "/>
+        </symbol>
+        <symbol id="g35089A96F4517D19458AAA3BAF36FB65" overflow="visible">
+            <path d="M 0 0m 0.9163 3.2648 c 0.24639994 0 0.43119997 0.18479991 0.43119997 0.43120003 c 0 0.27719998 -0.14629996 0.42350006 -0.43119997 0.43120003 c 0.16940004 0.36189985 0.5544 0.6545 1.0548999 0.6545 c 0.6775999 0 1.1242001 -0.50820017 1.1242001 -1.1858001 c 0 -0.36960006 -0.13090014 -0.7238002 -0.40040016 -1.0703001 c -0.1308999 -0.17709994 -0.23099995 -0.30029988 -0.30029988 -0.36960006 l -1.8249 -1.8094999 c -0.10010001 -0.092400014 -0.08470002 -0.1155 -0.08470002 -0.3465 h 3.1724 l 0.23869991 1.4476 h -0.32340002 c -0.053900003 -0.4081 -0.11549997 -0.64680004 -0.18479991 -0.7007 c -0.03850007 -0.023100019 -0.27719998 -0.03850001 -0.7314999 -0.03850001 h -1.3090001 c 0.5159 0.45429993 0.9933001 0.86239994 1.4476 1.2243 c 0.34649992 0.2694999 0.59290004 0.50820005 0.7469001 0.71609986 c 0.23099995 0.30030012 0.34649992 0.6160002 0.34649992 0.94710016 c 0 0.47739983 -0.18479991 0.8547001 -0.56209993 1.1318998 c -0.3311 0.25409985 -0.7469001 0.38500023 -1.2397001 0.38500023 c -0.42349994 0 -0.7853999 -0.12319994 -1.1011 -0.3696003 c -0.3311 -0.26949978 -0.50049996 -0.60829973 -0.50049996 -1.0240998 c 0 -0.26180005 0.19250003 -0.45429993 0.4312 -0.45429993 Z "/>
+        </symbol>
+    </defs>
+</svg><span class="sr-only">$ E=m c^2 $</span></div>
+<pre class="mermaid"><code>graph LR;
+    A[Start] --&gt; B{Is it working?};
+    B -- Yes --&gt; C[Great!];
+    B -- No --&gt; D[Try again];
+    D --&gt; B;</code></pre>
+      </header>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+      <nav class="md-post__authors md-typeset">
+        
+          <span class="md-author">
+            <img src="https://github.com/uni-lamb.png" alt="uni">
+          </span>
+        
+      </nav>
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2025-11-23 00:00:00+00:00">November 23, 2025</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="category/%E6%97%A5%E8%AE%B0/" class="md-meta__link">日记</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              1 min read
+            
+          </li>
+        
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="_1"><a class="toclink" href="2025/11/23/%E4%BB%8A%E6%97%A5%E4%BA%8B/">今日事</a></h2>
+<p>越来越看cc98不爽了，因此那边的一路楼不会再放什么私密内容</p>
+<p>98放一个备忘录、一个emo楼，还有小号一个沉思录。</p>
+<p>今天心情不大好，一个是早上起不来，一个是下午没正常聚会，感觉很失落</p>
+<p>什么都没有做好，也只能祈祷未来加力量了</p>
+    
+    
+  </div>
+</article>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+      <nav class="md-post__authors md-typeset">
+        
+          <span class="md-author">
+            <img src="https://github.com/uni-lamb.png" alt="uni">
+          </span>
+        
+      </nav>
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2025-11-05 00:00:00+00:00">November 5, 2025</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="category/%E6%97%A5%E8%AE%B0/" class="md-meta__link">日记</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              1 min read
+            
+          </li>
+        
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="_1"><a class="toclink" href="2025/11/05/%E9%9A%8F%E6%84%9F/">随感</a></h2>
+<p>也是想记点东西了。就方便程度来说，好像没必要typst……？看着svg图像我的心在滴血啊</p>
+<p>一补：其实不怎么占空间。而且比网页渲染md的LaTeX绝对是更优的</p>
+    
+    
+  </div>
+</article>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+      <nav class="md-post__authors md-typeset">
+        
+          <span class="md-author">
+            <img src="https://github.com/uni-lamb.png" alt="uni">
+          </span>
+        
+      </nav>
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2025-07-04 00:00:00+00:00">July 4, 2025</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="category/%E6%97%A5%E8%AE%B0/" class="md-meta__link">日记</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              1 min read
+            
+          </li>
+        
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="_1"><a class="toclink" href="2025/07/04/%E4%BD%A0%E8%AF%B4%E5%BE%97%E5%AF%B9%E4%BD%86%E6%98%AF/">你说得对，但是</a></h2>
+<p>今天是Nagisa的生日，祝她生日快乐！</p>
+    
+    
+  </div>
+</article>
+      
+      
+        
+          
+
+
+
+<nav class="md-pagination">
+  
+</nav>
+        
+      
+    </div>
+  </div>
+
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <!-- Footer -->
+<footer class="md-footer">
+
+  <!-- Link to previous and/or next page -->
+  
+    
+      
+      <nav
+        class="md-footer__inner md-grid"
+        aria-label="Footer"
+        
+      >
+
+        <!-- Link to previous page -->
+        
+          
+          <a
+            href="../notes/MachineLearning/FeatureEngineering/"
+            class="md-footer__link md-footer__link--prev"
+            aria-label="Previous: 特征工程"
+          >
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                特征工程
+              </div>
+            </div>
+
+          </a>
+        
+
+        <!-- Link to next page -->
+        
+          
+          <a
+            href="category/%E6%97%A5%E8%AE%B0/"
+            class="md-footer__link md-footer__link--next"
+            aria-label="Next: 日记"
+          >
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                日记
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+
+  <!-- Further information -->
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+
+    <font color="#B9B9B9">
+      <div class="footer-visit-count" style="display: flex; justify-content: center; align-items: center;">
+    本站访问量：<script async src="//finicounter.eu.org/finicounter.js"></script>
+    <span id="finicount_views"></span>    &nbsp;|&nbsp;
+    <footer>
+      <a href="https://icp.gov.moe/?keyword=20258101" target="_blank">萌ICP备20258101号</a>
+    </footer>
+  </div>
+      </font>
+
+      <style>
+        .footer-visit-count {
+            height: fit-content;
+            min-height: 55px; /* 根据实际情况调整此高度 */
+        }
+        </style>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["search.suggest", "navigation.tracking", "navigation.footer", "navigation.tabs", "navigation.tabs.sticky", "navigation.indexes"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
