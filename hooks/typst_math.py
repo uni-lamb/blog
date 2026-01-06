@@ -112,6 +112,18 @@ def render_typst_block_math(match: re.Match[str]) -> str:
     )
 
 
+def render_fenced_math(match: re.Match[str]) -> str:
+    """Render a fenced code block as a typst math block."""
+    src = html.unescape(match.group(1)).strip()
+    typ = f"$ {src} $"
+    return (
+        '<div class="typst-math">'
+        + fix_svg(typst_compile(typ))
+        + for_screen_reader(typ)
+        + "</div>"
+    )
+
+
 def for_screen_reader(typ: str) -> str:
     return f'<span class="sr-only">{html.escape(typ)}</span>'
 
